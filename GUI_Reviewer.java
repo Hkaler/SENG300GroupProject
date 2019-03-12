@@ -42,11 +42,11 @@ public class GUI_Reviewer {
 		frame.setBounds(100, 100, 437, 594);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		//Lets you switch to author page
 		JButton btnAuthorPage = new JButton("Author Page");
 		btnAuthorPage.setBounds(10, 494, 104, 23);
 		frame.getContentPane().add(btnAuthorPage);
-		
+		//Back brings you back to last page "Login"
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(308, 494, 89, 23);
 		frame.getContentPane().add(btnBack);
@@ -54,7 +54,7 @@ public class GUI_Reviewer {
 		JLabel lblSubmittedPapersFor = new JLabel("Submitted Papers for Review");
 		lblSubmittedPapersFor.setBounds(10, 30, 228, 14);
 		frame.getContentPane().add(lblSubmittedPapersFor);
-		
+		//Select submission to review
 		JButton btnReview = new JButton("Review");
 		btnReview.setBounds(10, 279, 89, 23);
 		frame.getContentPane().add(btnReview);
@@ -62,11 +62,11 @@ public class GUI_Reviewer {
 		JLabel lblAuthorTicket = new JLabel("Author Ticket");
 		lblAuthorTicket.setBounds(10, 313, 104, 14);
 		frame.getContentPane().add(lblAuthorTicket);
-		
+		//This List provides all the submitted tickets by authors
 		JList listAuthorTickets = new JList();
 		listAuthorTickets.setBounds(10, 338, 401, 145);
 		frame.getContentPane().add(listAuthorTickets);
-		
+		//This list provides all the submitted papers by authors.
 		JList listSubmittedPapers = new JList();
 		listSubmittedPapers.setBounds(10, 55, 401, 213);
 		frame.getContentPane().add(listSubmittedPapers);

@@ -51,23 +51,23 @@ public class GUI_Revision_Status {
 		JLabel lblRevisionFeedback = new JLabel("Revision Feedback");
 		lblRevisionFeedback.setBounds(10, 16, 98, 14);
 		frame.getContentPane().add(lblRevisionFeedback);
-		
+		//Submit lets you submit your revisions
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(229, 521, 89, 23);
 		frame.getContentPane().add(btnSubmit);
-		
+		//Back button just takes you back to previous screen
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(322, 521, 89, 23);
 		frame.getContentPane().add(btnBack);
-		
+		//Radio button "Under Review" lets you place the selected submission as "Under Review"
 		JRadioButton rdbtnUnderReview = new JRadioButton("Under Review");
 		rdbtnUnderReview.setBounds(10, 368, 109, 23);
 		frame.getContentPane().add(rdbtnUnderReview);
-		
+		//Radio button "Revised" lets you place the selected submission as "Revised"
 		JRadioButton rdbtnRevised = new JRadioButton("Revised");
 		rdbtnRevised.setBounds(10, 394, 109, 23);
 		frame.getContentPane().add(rdbtnRevised);
-		
+		//Radio button "Received" lets you place the selected submission as "Received"
 		JRadioButton rdbtnReceived = new JRadioButton("Received");
 		rdbtnReceived.setBounds(10, 342, 109, 23);
 		frame.getContentPane().add(rdbtnReceived);
@@ -75,7 +75,7 @@ public class GUI_Revision_Status {
 		JLabel lblStatus = new JLabel("Status");
 		lblStatus.setBounds(20, 321, 46, 14);
 		frame.getContentPane().add(lblStatus);
-		
+		//Radio button "Finalize" lets you place the selected submission as "Finalize"
 		JRadioButton rdbtnFinalize = new JRadioButton("Finalize");
 		rdbtnFinalize.setBounds(10, 419, 109, 23);
 		frame.getContentPane().add(rdbtnFinalize);

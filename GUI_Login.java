@@ -6,6 +6,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GUI_Login {
 
@@ -55,15 +57,31 @@ public class GUI_Login {
 		frmJournalPublicationLogin.getContentPane().add(lblPassword);
 		
 		txtUsername = new JTextField();
-		txtUsername.setHorizontalAlignment(SwingConstants.CENTER);
+		txtUsername.setHorizontalAlignment(SwingConstants.LEFT);
 		txtUsername.setBounds(132, 36, 219, 20);
 		frmJournalPublicationLogin.getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
-		
+		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			/* we're creating a demo format for linking login credentials to appropriate GUI
+			i.e logging in with admin credentials means getting the admin GUI*/
+			//Make an asynchronous thread to handle new windows
+			public void actionPerformed(ActionEvent arg0) {
+				//if (User.privileges == Admin) {
+					
+					try {
+						new GUI_Author_Main();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+				//}
+			}
+		});
 		btnLogin.setBounds(25, 128, 89, 23);
 		frmJournalPublicationLogin.getContentPane().add(btnLogin);
-		
+		//Sign up button directs you to GUI_Sign_UP to create an account 
 		JButton btnSignUp = new JButton("Sign Up");
 		btnSignUp.setBounds(262, 128, 89, 23);
 		frmJournalPublicationLogin.getContentPane().add(btnSignUp);

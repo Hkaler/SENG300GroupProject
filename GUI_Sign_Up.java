@@ -55,7 +55,7 @@ public class GUI_Sign_Up {
 		txtEnterYourPassword.setBounds(153, 104, 210, 29);
 		frmSignUp.getContentPane().add(txtEnterYourPassword);
 		txtEnterYourPassword.setColumns(10);
-		
+		//Submit button allows you to submit your newly created login credentials
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(20, 227, 89, 23);
 		frmSignUp.getContentPane().add(btnSubmit);
@@ -67,7 +67,7 @@ public class GUI_Sign_Up {
 		JLabel lblEnterYourPassword = new JLabel("Enter your password");
 		lblEnterYourPassword.setBounds(20, 104, 123, 29);
 		frmSignUp.getContentPane().add(lblEnterYourPassword);
-		
+		//Back button just takes you back to previous screen "GUI_Login"
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(335, 227, 89, 23);
 		frmSignUp.getContentPane().add(btnBack);

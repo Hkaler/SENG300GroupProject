@@ -87,7 +87,7 @@ public class GUI_Author_Main {
 		txtSupportTicket.setBounds(10, 130, 393, 96);
 		frmAuthorMainPage.getContentPane().add(txtSupportTicket);
 		txtSupportTicket.setColumns(10);
-		
+		//Submit button is used to submit a support ticket
 		JButton btnSubmitSupport = new JButton("Submit");
 		btnSubmitSupport.setBounds(314, 237, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnSubmitSupport);
