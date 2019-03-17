@@ -26,12 +26,14 @@ public class Driver implements ActionListener{
 			try {
 				password = login.getPassword();
 				
-				StringBuilder build = new StringBuilder();
-				for (char ch: password) {
-					build.append(password);
-				}
-				String sPassword = build.toString();
+//				StringBuilder build = new StringBuilder();
+//				for (char ch: password) {
+//					build.append(password);
+//					System.out.println(password);
+//				}
 				
+				String sPassword = String.copyValueOf(password);
+				System.out.println(sPassword);
 				log.logIn(login.getUsername(), sPassword);
 			} catch (Exception e1) {
 				e1.printStackTrace();
