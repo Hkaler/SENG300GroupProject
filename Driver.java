@@ -38,7 +38,7 @@ public class Driver implements ActionListener{
 		}
 		if(e.getActionCommand().equals("Sign Up")) {
 			// open Sign Up window
-			//GUI_Sign_Up.main(args);
+			new GUI_Sign_Up();
 		}
 		if(e.getActionCommand().equals("Reviewer")) {
 			
