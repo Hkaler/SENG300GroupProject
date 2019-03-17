@@ -14,6 +14,14 @@ public class Driver implements ActionListener{
 		if(e.getActionCommand().equals("Login")) {
 			//Login.login();
 			// Check value for User.role and from there open up the respective GUI
+			String userRole = newUser.getRole();
+			if (userRole.equals(admin)) {
+				
+			} else if (userRole.equals(reviewer)) {
+				
+			} else if (userRole.equals(author)) {
+				
+			}
 		}
 		if(e.getActionCommand().equals("Sign Up")) {
 			//GUI_Sign_Up.main(args);
