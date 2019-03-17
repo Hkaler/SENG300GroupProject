@@ -19,7 +19,7 @@ public class Login {
 		  if (username.equals(tempUsername) && password.equals(tempPassword)) {
 				  role = sc.next();
 				  newUser = new User(username,password,role);
-				  System.out.printf("User <%s> is now active under <%s> role.",username,role);
+				  //System.out.printf("User <%s> is now active under <%s> role.",username,role);
 				  break;
 			  }
 			  else {
