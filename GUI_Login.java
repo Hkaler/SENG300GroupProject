@@ -12,8 +12,8 @@ import java.awt.event.ActionEvent;
 public class GUI_Login {
 
 	private JFrame frmJournalPublicationLogin;
-	private JTextField txtUsername;
-	private JPasswordField passwordField;
+	private static JTextField txtUsername;
+	private static JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -38,6 +38,21 @@ public class GUI_Login {
 		initialize();
 	}
 
+	/**
+	 * Get user name.
+	 */
+	public static String getUsername() {
+		return (txtUsername.getText());
+	}
+	
+	/**
+	 * Get password.
+	 */
+	@SuppressWarnings("deprecation")
+	public static String getPassword() {
+		return (passwordField.getText());
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -68,21 +83,21 @@ public class GUI_Login {
 			i.e logging in with admin credentials means getting the admin GUI*/
 			//Make an asynchronous thread to handle new windows
 			public void actionPerformed(ActionEvent arg0) {
-				//if (User.privileges == Admin) {
-					
+				if (Login.newUser.getRole().equals("admin")) {
 					try {
 						new GUI_Author_Main();
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} 
-				//}
+				}
 			}
 		});
 		btnLogin.setBounds(25, 128, 89, 23);
 		frmJournalPublicationLogin.getContentPane().add(btnLogin);
 		//Sign up button directs you to GUI_Sign_UP to create an account 
 		JButton btnSignUp = new JButton("Sign Up");
+		//btnSignUp.addActionListener(l);
 		btnSignUp.setBounds(262, 128, 89, 23);
 		frmJournalPublicationLogin.getContentPane().add(btnSignUp);
 		
