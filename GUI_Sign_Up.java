@@ -56,7 +56,7 @@ public class GUI_Sign_Up {
 		frmSignUp.getContentPane().add(txtEnterYourPassword);
 		txtEnterYourPassword.setColumns(10);
 		//Submit button allows you to submit your newly created login credentials
-		JButton btnSubmit = new JButton("Submit");
+		JButton btnSubmit = new JButton("Continue");
 		btnSubmit.setBounds(20, 227, 89, 23);
 		frmSignUp.getContentPane().add(btnSubmit);
 		

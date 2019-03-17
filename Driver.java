@@ -7,12 +7,12 @@ public class Driver implements ActionListener{
 	private GUI_Login login = new GUI_Login(this);
 	private GUI_Admin admin = new GUI_Admin(this);
 //	private GUI_AdminReviewProc reviewProc = new GUI_AdminReviewProc(this);
-	private GUI_AdminTickets adminTics = new GUI_AdminTickets(this);
+//	private GUI_AdminTickets adminTics = new GUI_AdminTickets(this);
 //	private GUI_Author_Main authorMain = new GUI_Author_Main(this);
 //	private GUI_Reviewer reviewer = new GUI_Reviewer(this);
 //	private GUI_Revision_Status revisionStatus = new GUI_Revision_Status(this);
 //	private GUI_Sign_Up signUp = new GUI_Sign_Up(this);
-//	
+	
 	public Driver() {
 		
 	}
@@ -43,36 +43,52 @@ public class Driver implements ActionListener{
 			String userRole = log.newUser.getRole();
 			if (userRole.equals("admin")) {
 				// open admin window
+				login.setVisible(false);
+				admin.setVisible(true);
 			} else if (userRole.equals("reviewer")) {
 				// open reviewer window
+				login.setVisible(false);
+				//reviewer.setVisible(true);
 			} else if (userRole.equals("author")) {
 				// open author window
+				login.setVisible(false);
+				//authorMain.setVisible(true);
 			}
 		}
 		if(e.getActionCommand().equals("Sign Up")) {
 			// open Sign Up window
-			//GUI_Sign_Up.main(args);
+			login.setVisible(false);
+			//signUp.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Reviewer")) {
-			
+			admin.setVisible(false);
+			//reviewer.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Review Process")) {
-			
+			admin.setVisible(false);
+			//reviewProc.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Review Tickets")) {
-			
+			admin.setVisible(false);
+			//adminTics.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Assign")) {
-			
+			//reviewProc.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Judge")) {
-	
+			//reviewProc.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Tickets")) {
-			
+			//adminTics.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Resolve")) {
-			
+			//adminTics.setVisible(false);
+		}
+		if(e.getActionCommand().equals("Continue")) {
+			//signUp.setVisible(false);
+		}
+		if(e.getActionCommand().equals("Back")) {
+			//signUp.setVisible(false);
 		}
 	}
 	
@@ -81,8 +97,8 @@ public class Driver implements ActionListener{
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 					drive.login.setVisible(true);
-					drive.admin.setVisible(true);
-					drive.adminTics.setVisible(true);
+//					drive.admin.setVisible(true);
+//					drive.adminTics.setVisible(true);
 //					drive.authorMain.setVisible(true);
 				 }
 		 	});
