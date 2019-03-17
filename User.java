@@ -9,9 +9,10 @@ public class User {
 	public User() {
 		this.loginStatus = false;
 	}
-	public User(String username, String password) {
+	public User(String username, String password, String role) {
 		this.username = username;
 		this.password = password;
+		this.role = role; 
 	}
 	
 	public void setUsername(String newUser) {

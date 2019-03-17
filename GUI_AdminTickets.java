@@ -7,59 +7,57 @@ import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class GUI_AdminTickets {
+public class GUI_AdminTickets extends JFrame{
 
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI_AdminTickets window = new GUI_AdminTickets();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					GUI_AdminTickets window = new GUI_AdminTickets();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public GUI_AdminTickets() {
-		initialize();
+	public GUI_AdminTickets(ActionListener listen) {
+		initialize(listen);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param listen 
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+	private void initialize(ActionListener listen) {
+		//frame = new JFrame();
+		super.setBounds(100, 100, 450, 300);
+		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super.getContentPane().setLayout(null);
 		
 		JList listTickets = new JList();
 		listTickets.setBounds(29, 52, 214, 82);
-		frame.getContentPane().add(listTickets);
+		super.getContentPane().add(listTickets);
 		
 		//select a ticket
 		JLabel lblTickets = new JLabel("Tickets");
 		lblTickets.setBounds(32, 27, 46, 14);
-		frame.getContentPane().add(lblTickets);
+		super.getContentPane().add(lblTickets);
 		
 		//move selected ticket to 'resolved' list
 		JButton btnResolve = new JButton("Resolve");
-		btnResolve.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnResolve.addActionListener(listen);
 		btnResolve.setBounds(29, 163, 89, 23);
-		frame.getContentPane().add(btnResolve);
+		super.getContentPane().add(btnResolve);
 	}
 
 }
