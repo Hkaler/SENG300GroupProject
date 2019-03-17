@@ -22,10 +22,18 @@ public class Driver implements ActionListener{
 			String userRole = Login.newUser.getRole();
 			if (userRole.equals("admin")) {
 				// open admin window
+				new GUI_Admin();
 			} else if (userRole.equals("reviewer")) {
 				// open reviewer window
+				new GUI_Reviewer();
 			} else if (userRole.equals("author")) {
 				// open author window
+				try {
+					new GUI_Author_Main();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		}
 		if(e.getActionCommand().equals("Sign Up")) {
@@ -50,7 +58,10 @@ public class Driver implements ActionListener{
 		if(e.getActionCommand().equals("Tickets")) {
 			
 		}
-		if(e.getActionCommand().equals("Resolve")) {
+		if(e.getActionCommand().equals("Continue")) {
+			
+		}
+		if(e.getActionCommand().equals("Back")) {
 			
 		}
 	}

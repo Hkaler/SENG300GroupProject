@@ -41,7 +41,7 @@ public class GUI_Sign_Up {
 	 */
 	private void initialize() {
 		frmSignUp = new JFrame();
-		frmSignUp.setTitle("Sign Up");
+		frmSignUp.setTitle("Continue");
 		frmSignUp.setBounds(100, 100, 450, 300);
 		frmSignUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSignUp.getContentPane().setLayout(null);
