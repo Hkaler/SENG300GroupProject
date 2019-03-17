@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -44,12 +46,18 @@ public class GUI_AdminTickets {
 		JList listTickets = new JList();
 		listTickets.setBounds(29, 52, 214, 82);
 		frame.getContentPane().add(listTickets);
+		
 		//select a ticket
 		JLabel lblTickets = new JLabel("Tickets");
 		lblTickets.setBounds(32, 27, 46, 14);
 		frame.getContentPane().add(lblTickets);
+		
 		//move selected ticket to 'resolved' list
 		JButton btnResolve = new JButton("Resolve");
+		btnResolve.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnResolve.setBounds(29, 163, 89, 23);
 		frame.getContentPane().add(btnResolve);
 	}

@@ -5,8 +5,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GUI_Admin {
-
+public class GUI_Admin  {
+	
 	private JFrame frame;
 
 	/**
@@ -43,12 +43,21 @@ public class GUI_Admin {
 		
 		//Switch to reviewer mode
 		JButton btnReviewer = new JButton("Reviewer");
+		btnReviewer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			}
+		});
 		btnReviewer.setBounds(10, 227, 89, 23);
 		frame.getContentPane().add(btnReviewer);
 		
 		//Opens GUI_AdminReviewProc window
 		JButton btnReviewProcesses = new JButton("Review Processes");
 		btnReviewProcesses.setBounds(10, 24, 143, 23);
+		btnReviewProcesses.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		frame.getContentPane().add(btnReviewProcesses);
 		
 		//opens GUI_AdminTickets window
@@ -60,4 +69,6 @@ public class GUI_Admin {
 		btnReviewTickets.setBounds(10, 120, 158, 23);
 		frame.getContentPane().add(btnReviewTickets);
 	}
+
+
 }

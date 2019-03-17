@@ -40,18 +40,22 @@ public class GUI_AdminReviewProc {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
 		//displays the list of submissions
 		JList listSubmissionList = new JList();
 		listSubmissionList.setBounds(37, 30, 190, 36);
 		frame.getContentPane().add(listSubmissionList);
+		
 		//Assigns 3 reviewers to a selected paper
 		JButton btnAssign = new JButton("Assign");
 		btnAssign.setBounds(37, 88, 89, 23);
 		frame.getContentPane().add(btnAssign);
+		
 		//Judge button allows the reviewer to determine if the paper is good for publication
 		JButton btnJudge = new JButton("Judge");
 		btnJudge.setBounds(155, 88, 89, 23);
 		frame.getContentPane().add(btnJudge);
+		
 		//displays info about the selected submission
 		JList listSubmissionInfo = new JList();
 		listSubmissionInfo.setBounds(281, 57, 125, 159);
