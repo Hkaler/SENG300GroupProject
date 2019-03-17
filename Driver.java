@@ -84,6 +84,7 @@ public class Driver implements ActionListener{
 		if(e.getActionCommand().equals("Resolve")) {
 			//adminTics.setVisible(false);
 		}
+		// this is the "sign up" button in the Sign_Up GUI to create a new record for a new user
 		if(e.getActionCommand().equals("Continue")) {
 			//signUp.setVisible(false);
 		}
