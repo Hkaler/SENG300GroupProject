@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 public class Driver implements ActionListener{
 
 	public static boolean loginFlag = false; 
+<<<<<<< HEAD
 	private GUI_Login login = new GUI_Login(this);
 	private GUI_Admin admin = new GUI_Admin(this);
 	private GUI_AdminReviewProc reviewProc = new GUI_AdminReviewProc(this);

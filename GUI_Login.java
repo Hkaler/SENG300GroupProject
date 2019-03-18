@@ -41,6 +41,24 @@ public class GUI_Login  extends JFrame{
 
 	/**
 	 * Get user name.
+<<<<<<< HEAD
+=======
+	 */
+	public static String getUsername() {
+		return (txtUsername.getText());
+	}
+	
+	/**
+	 * Get password.
+	 */
+	@SuppressWarnings("deprecation")
+	public static String getPassword() {
+		return (passwordField.getText());
+	}
+	
+	/**
+	 * Initialize the contents of the frame.
+>>>>>>> refs/remotes/origin/master
 	 */
 	public String getUsername() {
 		return (txtUsername.getText());
@@ -82,14 +100,36 @@ public class GUI_Login  extends JFrame{
 		
 		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
 		JButton btnLogin = new JButton("Login");
+<<<<<<< HEAD
 		btnLogin.addActionListener(listen);
+=======
+		btnLogin.addActionListener(new ActionListener() {
+			/* we're creating a demo format for linking login credentials to appropriate GUI
+			i.e logging in with admin credentials means getting the admin GUI*/
+			//Make an asynchronous thread to handle new windows
+			public void actionPerformed(ActionEvent arg0) {
+				if (Login.newUser.getRole().equals("admin")) {
+					try {
+						new GUI_Author_Main();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+				}
+			}
+		});
+>>>>>>> refs/remotes/origin/master
 		btnLogin.setBounds(25, 128, 89, 23);
 		super.getContentPane().add(btnLogin);
 		
 		
 		//Sign up button directs you to GUI_Sign_UP to create an account 
 		JButton btnSignUp = new JButton("Sign Up");
+<<<<<<< HEAD
 		btnSignUp.addActionListener(listen);
+=======
+		//btnSignUp.addActionListener(l);
+>>>>>>> refs/remotes/origin/master
 		btnSignUp.setBounds(262, 128, 89, 23);
 		super.getContentPane().add(btnSignUp);
 		

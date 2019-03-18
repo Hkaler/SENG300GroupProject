@@ -41,11 +41,20 @@ public class GUI_Sign_Up extends JFrame{
 	 * Initialize the contents of the frame.
 	 * @param l 
 	 */
+<<<<<<< HEAD
 	private void initialize(ActionListener l) {
 		super.setTitle("Sign Up");
 		super.setBounds(100, 100, 450, 300);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.getContentPane().setLayout(null);
+=======
+	private void initialize() {
+		frmSignUp = new JFrame();
+		frmSignUp.setTitle("Continue");
+		frmSignUp.setBounds(100, 100, 450, 300);
+		frmSignUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSignUp.getContentPane().setLayout(null);
+>>>>>>> refs/remotes/origin/master
 		
 		txtEnterYourEmail = new JTextField();
 		txtEnterYourEmail.setBounds(153, 21, 210, 29);

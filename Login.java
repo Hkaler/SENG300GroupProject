@@ -3,6 +3,7 @@ import java.io.*;
 
 public class Login {
 	
+<<<<<<< HEAD
 	public User newUser; 
 	
 	// Authenticate user and create instance with correct role 
@@ -20,6 +21,25 @@ public class Login {
 				  role = sc.next();
 				  newUser = new User(username,password,role);
 				  System.out.printf("User <%s> is now active under <%s> role.",username,role);
+=======
+	public static User newUser; 
+	
+	// Authenticate user and create instance with correct role 
+	public static void logIn(String username, String password) throws Exception {
+	  String dir = System.getProperty("user.dir");
+	  String tempUsername, tempPassword, role; 
+	  try {
+	  dir += "\\users.txt";
+	  File users = new File(dir);
+	  Scanner sc = new Scanner(users);
+	  while (sc.hasNextLine()) {
+		  tempUsername = sc.next();
+		  tempPassword = sc.next();
+		  if (username.equals(tempUsername) && password.equals(tempPassword)) {
+				  role = sc.next();
+				  newUser = new User(username,password,role);
+				  //System.out.printf("User <%s> is now active under <%s> role.",username,role);
+>>>>>>> refs/remotes/origin/master
 				  break;
 			  }
 			  else {
