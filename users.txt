@@ -1,3 +1,5 @@
-ajit1 1234 author 
-pawa1 4321 author 
-jose 1234 admin
+ajit1 1234 admin
+
+jose1 1234 author
+
+sehaj1 1234 reviewer
