@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
@@ -39,7 +40,7 @@ public class GUI_Author_Main extends JFrame{
 	 * Create the application.
 	 * @throws Exception 
 	 */
-	public GUI_Author_Main(ActionListener listen) throws Exception {
+	public GUI_Author_Main(ActionListener listen)   {
 		initialize(listen);
 	}
 
@@ -47,7 +48,7 @@ public class GUI_Author_Main extends JFrame{
 	 * Initialize the contents of the frame.
 	 * @param listen 
 	 */
-	private void initialize(ActionListener listen) throws Exception {
+	private void initialize(ActionListener listen) {
 		
 		File file = new File(System.getenv("programfiles"));
 		//frmAuthorMainPage = new JFrame();
