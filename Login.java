@@ -12,6 +12,7 @@ public class Login {
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 			pw.printf("\n" + username + " " + password + " " + role);
+			newUser = new User(username,password,role);
 			pw.close();
 		}
 		catch (Exception e) {
@@ -48,7 +49,9 @@ public class Login {
 		 e.printStackTrace();
 	 }
   }
-	/**
+}
+  
+  /**
   public static void main(String[] args) throws Exception {
 	  Scanner kb = new Scanner(System.in);
 	  System.out.print("Username: ");
@@ -59,5 +62,6 @@ public class Login {
 	  String role = kb.next();
 	  signUp(username,password,role);
 	  kb.close();
-  } **/
-}
+  } 
+  **/
+
