@@ -2,13 +2,28 @@ import java.util.*;
 import java.io.*;
 
 public class Login {
-	
-	public User newUser; 
-	
-	// Authenticate user and create instance with correct role 
-	public void logIn(String username, String password) throws Exception {
-	  String dir = System.getProperty("user.dir");
-	  String tempUsername, tempPassword, role; 
+
+	public User newUser;
+
+	// Add new user to the system
+	public static void signUp(String username, String password, String role) throws Exception {
+		try {
+			FileWriter fw = new FileWriter("users.txt",true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
+			pw.printf("\n" + username + " " + password + " " + role);
+			newUser = new User(username,password,role);
+			pw.close();
+		}
+		catch (Exception e) {
+			System.out.println("Error: unable to write to file");
+			e.printStackTrace();
+		}
+	}
+
+	// Authenticate user and create instance
+	public static void logIn(String username, String password) throws Exception {
+	  String tempUsername, tempPassword, role;
 	  try {
 	  dir += "\\users.txt";
 	  File users = new File(dir);
@@ -32,7 +47,8 @@ public class Login {
 		 e.printStackTrace();
 	 }
   }
-  
+}
+
   /**
   public static void main(String[] args) throws Exception {
 	  Scanner kb = new Scanner(System.in);
@@ -44,4 +60,3 @@ public class Login {
 	  kb.close();
   }
   **/
-}
