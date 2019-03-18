@@ -42,7 +42,6 @@ public class GUI_Sign_Up extends JFrame{
 	 * @param l 
 	 */
 	private void initialize(ActionListener l) {
-		//frmSignUp = new JFrame();
 		super.setTitle("Sign Up");
 		super.setBounds(100, 100, 450, 300);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,7 +58,7 @@ public class GUI_Sign_Up extends JFrame{
 		txtEnterYourPassword.setColumns(10);
 		
 		//Submit button allows you to submit your newly created login credentials
-		JButton btnSubmit = new JButton("Submit");
+		JButton btnSubmit = new JButton("Continue");
 		btnSubmit.addActionListener(l);
 		btnSubmit.setBounds(20, 227, 89, 23);
 		super.getContentPane().add(btnSubmit);

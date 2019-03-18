@@ -12,7 +12,7 @@ public class Driver implements ActionListener{
 	private GUI_Reviewer reviewer = new GUI_Reviewer(this);
 	private GUI_Revision_Status revisionStatus = new GUI_Revision_Status(this);
 	private GUI_Sign_Up signUp = new GUI_Sign_Up(this);
-	
+
 	public Driver() {
 		
 	}
@@ -42,7 +42,8 @@ public class Driver implements ActionListener{
 			} else if (userRole.equals("reviewer")) {
 				// open reviewer window
 				login.setVisible(false);
-				reviewer.setVisible(true);
+				//reviewer.setVisible(true);
+
 			} else if (userRole.equals("author")) {
 				// open author window
 				login.setVisible(false);
@@ -67,6 +68,7 @@ public class Driver implements ActionListener{
 			adminTics.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Assign")) {
+
 			reviewProc.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Judge")) {
@@ -76,6 +78,14 @@ public class Driver implements ActionListener{
 			adminTics.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Resolve")) {
+			adminTics.setVisible(false);
+		}
+		// this is the "sign up" button in the Sign_Up GUI to create a new record for a new user
+		if(e.getActionCommand().equals("Continue")) {
+			signUp.setVisible(false);
+		}
+		if(e.getActionCommand().equals("Back")) {
+			signUp.setVisible(false);
 			adminTics.setVisible(false);
 		}
 		// this is the "sign up" button in the Sign_Up GUI to create a new record for a new user
@@ -99,6 +109,7 @@ public class Driver implements ActionListener{
 					drive.reviewer.setVisible(false);
 					drive.revisionStatus.setVisible(false);
 					drive.signUp.setVisible(false);
+
 				 }
 		 	}); 
 	}
