@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
+import java.awt.Container;
 
 public class GUI_Reviewer extends JFrame{
 
@@ -32,6 +33,12 @@ public class GUI_Reviewer extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_Reviewer(ActionListener l) {
+		getContentPane().setLayout(null);
+		//Back brings you back to last page "Login"
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(12, 521, 89, 23);
+		getContentPane().add(btnBack);
+		btnBack.addActionListener(l);
 		initialize(l);
 	}
 
@@ -49,11 +56,7 @@ public class GUI_Reviewer extends JFrame{
 		btnAuthorPage.addActionListener(l);
 		btnAuthorPage.setBounds(10, 494, 104, 23);
 		super.getContentPane().add(btnAuthorPage);
-		//Back brings you back to last page "Login"
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(l);
-		btnBack.setBounds(308, 494, 89, 23);
-		super.getContentPane().add(btnBack);
+		Container container = super.getContentPane();
 		
 		JLabel lblSubmittedPapersFor = new JLabel("Submitted Papers for Review");
 		lblSubmittedPapersFor.setBounds(10, 30, 228, 14);

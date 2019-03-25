@@ -8,12 +8,15 @@ import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Container;
 
 public class GUI_Login  extends JFrame{
 
 	private JFrame frmJournalPublicationLogin;
 	private static JTextField txtUsername;
 	private static JPasswordField passwordField;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -35,6 +38,57 @@ public class GUI_Login  extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_Login(ActionListener listen) {
+		getContentPane().setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(133, 58, 226, 19);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblUsername = new JLabel("USERNAME:");
+		lblUsername.setBounds(29, 27, 80, 14);
+		getContentPane().add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("PASSWORD:");
+		lblPassword.setBounds(29, 55, 112, 19);
+		getContentPane().add(lblPassword);
+		
+		
+		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(29, 201, 89, 23);
+		getContentPane().add(btnLogin);
+		
+		
+		//Sign up button directs you to GUI_Sign_UP to create an account 
+		JButton btnSignUp = new JButton("Sign Up");
+		btnSignUp.setBounds(260, 200, 89, 23);
+		getContentPane().add(btnSignUp);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(133, 124, 226, 19);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		txtUsername = new JTextField();
+		txtUsername.setBounds(133, 26, 219, 20);
+		getContentPane().add(txtUsername);
+		txtUsername.setHorizontalAlignment(SwingConstants.LEFT);
+		txtUsername.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(133, 89, 219, 20);
+		getContentPane().add(passwordField);
+		
+		JLabel lblRole = new JLabel("ROLE");
+		lblRole.setBounds(29, 94, 70, 15);
+		getContentPane().add(lblRole);
+		
+		JLabel lblEmail = new JLabel("E-MAIL");
+		lblEmail.setBounds(29, 126, 70, 15);
+		getContentPane().add(lblEmail);
+		btnSignUp.addActionListener(listen);
+		btnLogin.addActionListener(listen);
 		//this.frmJournalPublicationLogin.setVisible(true);
 		initialize(listen);
 	}
@@ -64,37 +118,11 @@ public class GUI_Login  extends JFrame{
 		super.setBounds(100, 100, 415, 273);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.getContentPane().setLayout(null);
-		
-		JLabel lblUsername = new JLabel("USERNAME:");
-		lblUsername.setBounds(25, 39, 80, 14);
-		super.getContentPane().add(lblUsername);
-		
-		JLabel lblPassword = new JLabel("PASSWORD:");
-		lblPassword.setBounds(25, 82, 80, 14);
-		super.getContentPane().add(lblPassword);
-		
-		txtUsername = new JTextField();
-		txtUsername.setHorizontalAlignment(SwingConstants.LEFT);
-		txtUsername.setBounds(132, 36, 219, 20);
-		super.getContentPane().add(txtUsername);
-		txtUsername.setColumns(10);
-		
-		
-		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
-		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(listen);
-		btnLogin.setBounds(25, 128, 89, 23);
-		super.getContentPane().add(btnLogin);
-		
-		
-		//Sign up button directs you to GUI_Sign_UP to create an account 
-		JButton btnSignUp = new JButton("Sign Up");
-		btnSignUp.addActionListener(listen);
-		btnSignUp.setBounds(262, 128, 89, 23);
-		super.getContentPane().add(btnSignUp);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(132, 79, 219, 20);
-		super.getContentPane().add(passwordField);
+		Container container = super.getContentPane();
+		Container container_3 = super.getContentPane();
+		Container container_4 = super.getContentPane();
+		Container container_1 = super.getContentPane();
+		Container container_2 = super.getContentPane();
+		Container container_5 = super.getContentPane();
 	}
 }

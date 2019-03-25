@@ -31,6 +31,11 @@ public class GUI_AdminTickets extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_AdminTickets(ActionListener listen) {
+		getContentPane().setLayout(null);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(32, 225, 117, 25);
+		getContentPane().add(btnBack);
 		initialize(listen);
 	}
 

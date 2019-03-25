@@ -41,6 +41,11 @@ public class GUI_Author_Main extends JFrame{
 	 * @throws Exception 
 	 */
 	public GUI_Author_Main(ActionListener listen)   {
+		getContentPane().setLayout(null);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(12, 519, 117, 25);
+		getContentPane().add(btnBack);
 		initialize(listen);
 	}
 

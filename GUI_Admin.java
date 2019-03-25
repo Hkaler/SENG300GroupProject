@@ -29,6 +29,11 @@ public class GUI_Admin  extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_Admin(ActionListener listen) {
+		getContentPane().setLayout(null);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(319, 225, 117, 25);
+		getContentPane().add(btnBack);
 		initialize(listen);
 	}
 
@@ -45,12 +50,12 @@ public class GUI_Admin  extends JFrame{
 		//Switch to reviewer mode
 		JButton btnReviewer = new JButton("Reviewer");
 		btnReviewer.addActionListener(listen);
-		btnReviewer.setBounds(10, 227, 89, 23);
+		btnReviewer.setBounds(10, 227, 113, 23);
 		super.getContentPane().add(btnReviewer);
 		
 		//Opens GUI_AdminReviewProc window
 		JButton btnReviewProcesses = new JButton("Review Processes");
-		btnReviewProcesses.setBounds(10, 24, 143, 23);
+		btnReviewProcesses.setBounds(10, 24, 171, 23);
 		btnReviewProcesses.addActionListener(listen);
 		super.getContentPane().add(btnReviewProcesses);
 		
