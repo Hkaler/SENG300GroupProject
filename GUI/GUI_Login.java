@@ -1,4 +1,5 @@
 package GUI;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +11,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Login;
+import Backend.Login;
 
 public class GUI_Login {
 
@@ -61,6 +62,7 @@ public class GUI_Login {
 	 */
 	private void initialize() {
 		frmJournalPublicationLogin = new JFrame();
+		frmJournalPublicationLogin.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frmJournalPublicationLogin.setTitle("Journal Publication Login");
 		frmJournalPublicationLogin.setBounds(100, 100, 415, 273);
 		frmJournalPublicationLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

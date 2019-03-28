@@ -1,4 +1,5 @@
 package GUI;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -6,11 +7,15 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.ScrollPaneConstants;
 
 public class GUI_Revision_Status {
 
 	private JFrame frame;
-	private JTextField textRevisionNotes;
 
 	/**
 	 * Launch the application.
@@ -40,36 +45,33 @@ public class GUI_Revision_Status {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 437, 594);
+		frame.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frame.setBounds(100, 100, 494, 469);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		textRevisionNotes = new JTextField();
-		textRevisionNotes.setBounds(10, 41, 401, 270);
-		frame.getContentPane().add(textRevisionNotes);
-		textRevisionNotes.setColumns(10);
 		
 		JLabel lblRevisionFeedback = new JLabel("Revision Feedback");
 		lblRevisionFeedback.setBounds(10, 16, 98, 14);
 		frame.getContentPane().add(lblRevisionFeedback);
 		//Submit lets you submit your revisions
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(229, 521, 89, 23);
+		btnSubmit.setBounds(363, 397, 89, 23);
 		frame.getContentPane().add(btnSubmit);
 		//Back button just takes you back to previous screen
 		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(322, 521, 89, 23);
+		btnBack.setBounds(10, 397, 89, 23);
 		frame.getContentPane().add(btnBack);
 		//Radio button "Under Review" lets you place the selected submission as "Under Review"
 		JRadioButton rdbtnUnderReview = new JRadioButton("Under Review");
-		rdbtnUnderReview.setBounds(10, 368, 109, 23);
+		rdbtnUnderReview.setBounds(121, 342, 109, 23);
 		frame.getContentPane().add(rdbtnUnderReview);
 		//Radio button "Revised" lets you place the selected submission as "Revised"
 		JRadioButton rdbtnRevised = new JRadioButton("Revised");
-		rdbtnRevised.setBounds(10, 394, 109, 23);
+		rdbtnRevised.setBounds(232, 342, 109, 23);
 		frame.getContentPane().add(rdbtnRevised);
 		//Radio button "Received" lets you place the selected submission as "Received"
 		JRadioButton rdbtnReceived = new JRadioButton("Received");
+		rdbtnReceived.setBackground(Color.decode("#97d7ff"));
 		rdbtnReceived.setBounds(10, 342, 109, 23);
 		frame.getContentPane().add(rdbtnReceived);
 		
@@ -78,7 +80,28 @@ public class GUI_Revision_Status {
 		frame.getContentPane().add(lblStatus);
 		//Radio button "Finalize" lets you place the selected submission as "Finalize"
 		JRadioButton rdbtnFinalize = new JRadioButton("Finalize");
-		rdbtnFinalize.setBounds(10, 419, 109, 23);
+		rdbtnFinalize.setBounds(343, 342, 109, 23);
 		frame.getContentPane().add(rdbtnFinalize);
+		
+		
+		/*This scroll pane allows the reviewer to write their revision suggestions to the author who will be 
+		* be able to read them. Display any previous revision suggestions and upon hitting "submit" store them 
+		* for the author or reviewer to view later. 
+		*/
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(null);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(10, 42, 443, 268);
+		frame.getContentPane().add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		
+	
+		
+				
+				
+		
+
 	}
 }

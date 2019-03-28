@@ -1,4 +1,5 @@
 package GUI;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.EventQueue;
 
@@ -7,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import OpenFile;
+import Backend.OpenFile;
 
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -54,6 +55,7 @@ public class GUI_Author_Main {
 		
 		File file = new File(System.getenv("programfiles"));
 		frmAuthorMainPage = new JFrame();
+		frmAuthorMainPage.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frmAuthorMainPage.setTitle("Author Main Page");
 		frmAuthorMainPage.setBounds(100, 100, 437, 594);
 		frmAuthorMainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

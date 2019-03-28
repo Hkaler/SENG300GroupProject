@@ -48,7 +48,7 @@ public class GUI_Sign_Up {
 		frmSignUp = new JFrame();
 		frmSignUp.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frmSignUp.setTitle("Continue");
-		frmSignUp.setBounds(100, 100, 450, 300);
+		frmSignUp.setBounds(100, 100, 396, 245);
 		frmSignUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSignUp.getContentPane().setLayout(null);
 		
@@ -59,7 +59,7 @@ public class GUI_Sign_Up {
 		txtEnterYourEmail.setColumns(10);
 		//Submit button allows you to submit your newly created login credentials
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(335, 227, 89, 23);
+		btnSubmit.setBounds(274, 172, 89, 23);
 		frmSignUp.getContentPane().add(btnSubmit);
 		
 		JLabel lblUsername = new JLabel("Enter your username:");
@@ -71,7 +71,7 @@ public class GUI_Sign_Up {
 		frmSignUp.getContentPane().add(lblEnterYourPassword);
 		//Back button just takes you back to previous screen "GUI_Login"
 		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(20, 227, 89, 23);
+		btnBack.setBounds(20, 172, 89, 23);
 		frmSignUp.getContentPane().add(btnBack);
 		
 		textField = new JTextField();
