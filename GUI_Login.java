@@ -13,8 +13,8 @@ import java.awt.Container;
 public class GUI_Login  extends JFrame{
 
 	private JFrame frmJournalPublicationLogin;
-	private static JTextField txtUsername;
-	private static JPasswordField passwordField;
+	private JTextField txtUsername;
+	private JPasswordField passwordField;
 	private JTextField textField;
 	private JTextField textField_1;
 
@@ -104,8 +104,9 @@ public class GUI_Login  extends JFrame{
 	 * Get password.
 	 */
 	//@SuppressWarnings("deprecation")
-	public  char[] getPassword() {
-		return (passwordField.getPassword());
+	public String getPassword() {
+		String temp = new String(passwordField.getPassword());
+		return temp;
 	}
 	
 	/**
