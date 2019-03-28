@@ -1,9 +1,12 @@
+package GUI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
+//Admin tickets should be tagged with the 
 
 public class GUI_AdminTickets {
 
