@@ -3,5 +3,3 @@ ajit1 1234 admin hello@gg.ca
 jose1 1234 author wassup@gg.ca
 
 sehaj1 1234 reviewer hi@gg.ca
-
-bob 1234 author bob2@hs.ca
