@@ -13,7 +13,7 @@ public class Login {
 			pw.printf("\n" + username + " " + password + " " + role + " " + email);
 			User newUser = new User(username,password,role,email);
 			pw.close();
-			return newUser;
+			return newUser; 
 		}
 		catch (Exception e) {
 			System.out.println("Error: unable to write to file");
@@ -54,20 +54,6 @@ public class Login {
 	 return null;
   }
 }
-
-  /**
-  public static void main(String[] args) throws Exception {
-	  Scanner kb = new Scanner(System.in);
-	  System.out.print("Username: ");
-	  String username = kb.next();
-	  System.out.print("Password: ");
-	  String password = kb.next();
-	  System.out.print("Role: ");
-	  String role = kb.next();
-	  signUp(username,password,role);
-	  kb.close();
-  }
-  **/
 
 //  public static void main(String[] args) throws Exception {
 //	  Scanner kb = new Scanner(System.in);
