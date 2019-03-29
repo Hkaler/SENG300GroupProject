@@ -15,9 +15,9 @@ import Backend.Login;
 
 public class GUI_Login {
 
-	private JFrame frmJournalPublicationLogin;
-	private static JTextField txtUsername;
-	private static JPasswordField passwordField;
+	private JFrame frmLogin;
+	private static JTextField Login_Username;
+	private static JPasswordField Login_Password;
 
 	/**
 	 * Launch the application.
@@ -27,7 +27,7 @@ public class GUI_Login {
 			public void run() {
 				try {
 					GUI_Login window = new GUI_Login();
-					window.frmJournalPublicationLogin.setVisible(true);
+					window.frmLogin.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,7 +46,7 @@ public class GUI_Login {
 	 * Get user name.
 	 */
 	public static String getUsername() {
-		return (txtUsername.getText());
+		return (Login_Username.getText());
 	}
 	
 	/**
@@ -54,33 +54,33 @@ public class GUI_Login {
 	 */
 	@SuppressWarnings("deprecation")
 	public static String getPassword() {
-		return (passwordField.getText());
+		return (Login_Password.getText());
 	}
 	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmJournalPublicationLogin = new JFrame();
-		frmJournalPublicationLogin.getContentPane().setBackground(Color.decode("#cee5f2"));
-		frmJournalPublicationLogin.setTitle("Journal Publication Login");
-		frmJournalPublicationLogin.setBounds(100, 100, 415, 273);
-		frmJournalPublicationLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmJournalPublicationLogin.getContentPane().setLayout(null);
+		frmLogin = new JFrame();
+		frmLogin.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frmLogin.setTitle("Login");
+		frmLogin.setBounds(100, 100, 415, 256);
+		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogin.getContentPane().setLayout(null);
 		
-		JLabel lblUsername = new JLabel("USERNAME:");
-		lblUsername.setBounds(25, 39, 80, 14);
-		frmJournalPublicationLogin.getContentPane().add(lblUsername);
+		JLabel lblUsername = new JLabel("Enter your Username");
+		lblUsername.setBounds(10, 39, 126, 14);
+		frmLogin.getContentPane().add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("PASSWORD:");
-		lblPassword.setBounds(25, 82, 80, 14);
-		frmJournalPublicationLogin.getContentPane().add(lblPassword);
+		JLabel lblPassword = new JLabel("Enter your Password");
+		lblPassword.setBounds(10, 82, 126, 14);
+		frmLogin.getContentPane().add(lblPassword);
 		
-		txtUsername = new JTextField();
-		txtUsername.setHorizontalAlignment(SwingConstants.LEFT);
-		txtUsername.setBounds(132, 36, 219, 20);
-		frmJournalPublicationLogin.getContentPane().add(txtUsername);
-		txtUsername.setColumns(10);
+		Login_Username = new JTextField();
+		Login_Username.setHorizontalAlignment(SwingConstants.LEFT);
+		Login_Username.setBounds(146, 36, 243, 20);
+		frmLogin.getContentPane().add(Login_Username);
+		Login_Username.setColumns(10);
 		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
@@ -98,16 +98,22 @@ public class GUI_Login {
 				}
 			}
 		});
-		btnLogin.setBounds(25, 128, 89, 23);
-		frmJournalPublicationLogin.getContentPane().add(btnLogin);
-		//Sign up button directs you to GUI_Sign_UP to create an account 
+		btnLogin.setBounds(300, 183, 89, 23);
+		frmLogin.getContentPane().add(btnLogin);
+		//"Sign Up" closes this frame and opens a Sign up frame.
 		JButton btnSignUp = new JButton("Sign Up");
+		btnSignUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmLogin.dispose();
+				GUI_Sign_Up.main(null);;
+			}
+		});
 		//btnSignUp.addActionListener(l);
-		btnSignUp.setBounds(262, 128, 89, 23);
-		frmJournalPublicationLogin.getContentPane().add(btnSignUp);
+		btnSignUp.setBounds(10, 183, 89, 23);
+		frmLogin.getContentPane().add(btnSignUp);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(132, 79, 219, 20);
-		frmJournalPublicationLogin.getContentPane().add(passwordField);
+		Login_Password = new JPasswordField();
+		Login_Password.setBounds(146, 79, 243, 20);
+		frmLogin.getContentPane().add(Login_Password);
 	}
 }
