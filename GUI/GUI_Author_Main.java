@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 import Backend.OpenFile;
 
@@ -14,16 +15,17 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class GUI_Author_Main {
 
 //	protected static final ActionListener ActionListener = null;
 	private JFrame frmAuthorMainPage;
-	private JTextField txtSupportTicket;
 	private JTextField txtSubmitPaper;
 	private JTextField txtRevision;
-	private JTextField txtReviewStatus;
-
+	private String[] Ticket = new String[1];
 	/**
 	 * Launch the application.
 	 */
@@ -64,12 +66,16 @@ public class GUI_Author_Main {
 		File file = new File(System.getenv("programfiles"));
 		frmAuthorMainPage.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frmAuthorMainPage.setTitle("Author Main Page");
-		frmAuthorMainPage.setBounds(100, 100, 437, 594);
+		frmAuthorMainPage.setBounds(100, 100, 688, 425);
 		frmAuthorMainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAuthorMainPage.getContentPane().setLayout(null);
 		
+		JLabel lblPaper = new JLabel("Paper");
+		lblPaper.setBounds(10, 11, 46, 14);
+		frmAuthorMainPage.getContentPane().add(lblPaper);
+		
 		JLabel lblSubmitPaper = new JLabel("Submit Paper:");
-		lblSubmitPaper.setBounds(10, 49, 157, 14);
+		lblSubmitPaper.setBounds(10, 36, 157, 14);
 		frmAuthorMainPage.getContentPane().add(lblSubmitPaper);
 		
 		/* btnUploadPaper opens a file window upload page and allows a user to choose which paper they want to upload. 
@@ -89,24 +95,24 @@ public class GUI_Author_Main {
 				txtSubmitPaper.setText(of.fileChooser.getSelectedFile().getName());
 			}
 		});
-		btnUploadPaper.setBounds(314, 45, 89, 23);
+		btnUploadPaper.setBounds(244, 60, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnUploadPaper);
 		
-		JLabel lblSubmitSupportTicket = new JLabel("Submit Support Ticket:");
-		lblSubmitSupportTicket.setBounds(10, 105, 157, 14);
-		frmAuthorMainPage.getContentPane().add(lblSubmitSupportTicket);
+		txtSubmitPaper = new JTextField();
+		txtSubmitPaper.setBounds(10, 61, 224, 20);
+		frmAuthorMainPage.getContentPane().add(txtSubmitPaper);
+		txtSubmitPaper.setColumns(10);
 		
-		txtSupportTicket = new JTextField();
-		txtSupportTicket.setBounds(10, 130, 393, 96);
-		frmAuthorMainPage.getContentPane().add(txtSupportTicket);
-		txtSupportTicket.setColumns(10);
-		//Submit button is used to submit a support ticket
-		JButton btnSubmitSupport = new JButton("Submit");
-		btnSubmitSupport.setBounds(314, 237, 89, 23);
-		frmAuthorMainPage.getContentPane().add(btnSubmitSupport);
+		JLabel lblRevision = new JLabel("Revision");
+		lblRevision.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblRevision.setBounds(616, 11, 46, 14);
+		frmAuthorMainPage.getContentPane().add(lblRevision);
+		
+
 		
 		JLabel lblUploadRevisions = new JLabel("Upload Revisions:");
-		lblUploadRevisions.setBounds(10, 300, 217, 14);
+		lblUploadRevisions.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUploadRevisions.setBounds(573, 36, 89, 14);
 		frmAuthorMainPage.getContentPane().add(lblUploadRevisions);
 		
 		/* btnUploadRevision opens a file window upload page and allows a user to choose which revised paper they want to upload. 
@@ -126,37 +132,58 @@ public class GUI_Author_Main {
 				txtRevision.setText(of.fileChooser.getSelectedFile().getName());
 			}
 		});
-		btnUploadRevision.setBounds(314, 296, 89, 23);
+		btnUploadRevision.setBounds(343, 60, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnUploadRevision);
-		
-		txtSubmitPaper = new JTextField();
-		txtSubmitPaper.setBounds(10, 74, 393, 20);
-		frmAuthorMainPage.getContentPane().add(txtSubmitPaper);
-		txtSubmitPaper.setColumns(10);
 		
 		txtRevision = new JTextField();
 		txtRevision.setColumns(10);
-		txtRevision.setBounds(10, 325, 393, 20);
+		txtRevision.setBounds(442, 61, 220, 20);
 		frmAuthorMainPage.getContentPane().add(txtRevision);
 		
-		/* btnSignout lets the user go back to the login page  */
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnSignOut.setBounds(314, 521, 89, 23);
-		frmAuthorMainPage.getContentPane().add(btnSignOut);
-		
 		JLabel lblReviewStatus = new JLabel("Review Status:");
-		lblReviewStatus.setBounds(10, 374, 101, 14);
+		lblReviewStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblReviewStatus.setBounds(561, 105, 101, 14);
 		frmAuthorMainPage.getContentPane().add(lblReviewStatus);
 		
-		txtReviewStatus = new JTextField();
-		txtReviewStatus.setBounds(10, 410, 393, 100);
-		frmAuthorMainPage.getContentPane().add(txtReviewStatus);
-		txtReviewStatus.setColumns(10);
+		//Displays the reviewers most recent revisions *not used for submissions
+		JScrollPane scrollPaneReview = new JScrollPane();
+		scrollPaneReview.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneReview.setBounds(343, 130, 319, 211);
+		frmAuthorMainPage.getContentPane().add(scrollPaneReview);
 		
+		JTextArea textAreaReview = new JTextArea();
+		scrollPaneReview.setViewportView(textAreaReview);
+		
+		JLabel lblSubmitSupportTicket = new JLabel("Submit Support Ticket:");
+		lblSubmitSupportTicket.setBounds(10, 105, 157, 14);
+		frmAuthorMainPage.getContentPane().add(lblSubmitSupportTicket);
+		
+		JScrollPane scrollPaneSupport = new JScrollPane();
+		scrollPaneSupport.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneSupport.setBounds(10, 130, 323, 211);
+		frmAuthorMainPage.getContentPane().add(scrollPaneSupport);
+		
+		JTextArea textAreaSupport = new JTextArea();
+		scrollPaneSupport.setViewportView(textAreaSupport);
+		//Submit button is used to submit a support ticket
+		JButton btnSubmitSupport = new JButton("Submit");
+		btnSubmitSupport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Ticket[0] = textAreaReview.getText();
+			}
+		});
+		btnSubmitSupport.setBounds(125, 352, 89, 23);
+		frmAuthorMainPage.getContentPane().add(btnSubmitSupport);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmAuthorMainPage.dispose();
+				GUI_Login.main(Ticket);
+			}
+		});
+		btnBack.setBounds(10, 352, 89, 23);
+		frmAuthorMainPage.getContentPane().add(btnBack);
 	}
 	
 	public void setVisible(boolean x) {
