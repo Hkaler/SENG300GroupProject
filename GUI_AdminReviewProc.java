@@ -30,6 +30,11 @@ public class GUI_AdminReviewProc extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_AdminReviewProc(ActionListener l) {
+		getContentPane().setLayout(null);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(35, 225, 117, 25);
+		getContentPane().add(btnBack);
 		initialize(l);
 	}
 

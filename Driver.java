@@ -3,8 +3,7 @@ import java.awt.event.ActionListener;
 
 public class Driver implements ActionListener{
 
-	public static boolean loginFlag = false; 
-<<<<<<< HEAD
+	public static boolean loginFlag = false;
 	private GUI_Login login = new GUI_Login(this);
 	private GUI_Admin admin = new GUI_Admin(this);
 	private GUI_AdminReviewProc reviewProc = new GUI_AdminReviewProc(this);
@@ -13,29 +12,25 @@ public class Driver implements ActionListener{
 	private GUI_Reviewer reviewer = new GUI_Reviewer(this);
 	private GUI_Revision_Status revisionStatus = new GUI_Revision_Status(this);
 	private GUI_Sign_Up signUp = new GUI_Sign_Up(this);
+	Login log = new Login();
+	User newUser;
 
 	public Driver() {
-		
+
 	}
-	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		char [] password;
-		Login log = new Login();
 		if(e.getActionCommand().equals("Login")) {
-			try {
-				password = login.getPassword();
-
-				String sPassword = String.copyValueOf(password);
-				System.out.println(sPassword);
-				log.logIn(login.getUsername(), sPassword);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-			
+				try {
+					newUser = log.logIn(login.getUsername(), login.getPassword());
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			// Check value for User.role and from there open up the respective GUI
-			String userRole = log.newUser.getRole();
+			String userRole = newUser.getRole();
 			if (userRole.equals("admin")) {
 				// open admin window
 				login.setVisible(false);
@@ -43,7 +38,7 @@ public class Driver implements ActionListener{
 			} else if (userRole.equals("reviewer")) {
 				// open reviewer window
 				login.setVisible(false);
-				//reviewer.setVisible(true);
+				reviewer.setVisible(true);
 
 			} else if (userRole.equals("author")) {
 				// open author window
@@ -97,7 +92,7 @@ public class Driver implements ActionListener{
 			signUp.setVisible(false);
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Driver drive = new Driver();
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -112,7 +107,7 @@ public class Driver implements ActionListener{
 					drive.signUp.setVisible(false);
 
 				 }
-		 	}); 
+		 	});
 	}
 
 }
