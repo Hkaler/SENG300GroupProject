@@ -1,9 +1,10 @@
+package Backend;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 /*Source: https://www.youtube.com/watch?v=xkcs25Ustag */
 public class OpenFile {
-	JFileChooser fileChooser = new JFileChooser();
+	public JFileChooser fileChooser = new JFileChooser();
 	StringBuilder sb = new StringBuilder();
 
 	public void PickMe() throws Exception {
