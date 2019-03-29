@@ -42,6 +42,7 @@ public class GUI_AdminReviewProc{
 	private void initialize(ActionListener l) {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frame.getContentPane().setLayout(null);
 		
 		//displays the list of submissions

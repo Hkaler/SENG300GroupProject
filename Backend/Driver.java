@@ -63,7 +63,7 @@ public class Driver implements ActionListener{
 			admin.setVisible(false);
 			reviewer.setVisible(true);
 		}
-		if(e.getActionCommand().equals("Review Process")) {
+		if(e.getActionCommand().equals("Review Processes")) {
 			admin.setVisible(false);
 			reviewProc.setVisible(true);
 		}
@@ -72,7 +72,7 @@ public class Driver implements ActionListener{
 			adminTics.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Assign")) {
-
+			
 			reviewProc.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Judge")) {
@@ -82,6 +82,7 @@ public class Driver implements ActionListener{
 			adminTics.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Resolve")) {
+			admin.setVisible(true);
 			adminTics.setVisible(false);
 		}
 		// this is the "sign up" button in the Sign_Up GUI to create a new record for a new user
@@ -96,6 +97,15 @@ public class Driver implements ActionListener{
 		if(e.getActionCommand().equals("Continue")) {
 			signUp.setVisible(false);
 		}
+		
+		if (e.getActionCommand().equals("Review")) {
+			
+		}
+		
+		if (e.getActionCommand().equals("Author Page")) {
+			
+		}
+		
 //		if(e.getActionCommand().equals("Back")) {
 //			signUp.setVisible(false);
 //		}
