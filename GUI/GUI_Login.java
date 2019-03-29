@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 
 import Backend.Login;
 
-public class GUI_Login extends JFrame{
+public class GUI_Login {
 
 	private JFrame frmJournalPublicationLogin;
 	private static JTextField txtUsername;
@@ -39,6 +39,7 @@ public class GUI_Login extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_Login(ActionListener listen) {
+		frmJournalPublicationLogin = new JFrame();
 		initialize(listen);
 	}
 
@@ -62,41 +63,44 @@ public class GUI_Login extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(ActionListener listen) {
-		//frmJournalPublicationLogin = new JFrame();
-		super.getContentPane().setBackground(Color.decode("#cee5f2"));
-		super.setTitle("Journal Publication Login");
-		super.setBounds(100, 100, 415, 273);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.getContentPane().setLayout(null);
+		frmJournalPublicationLogin.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frmJournalPublicationLogin.setTitle("Journal Publication Login");
+		frmJournalPublicationLogin.setBounds(100, 100, 415, 273);
+		frmJournalPublicationLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmJournalPublicationLogin.getContentPane().setLayout(null);
 		
 		JLabel lblUsername = new JLabel("USERNAME:");
 		lblUsername.setBounds(25, 39, 80, 14);
-		super.getContentPane().add(lblUsername);
+		frmJournalPublicationLogin.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("PASSWORD:");
 		lblPassword.setBounds(25, 82, 80, 14);
-		super.getContentPane().add(lblPassword);
+		frmJournalPublicationLogin.getContentPane().add(lblPassword);
 		
 		txtUsername = new JTextField();
 		txtUsername.setHorizontalAlignment(SwingConstants.LEFT);
 		txtUsername.setBounds(132, 36, 219, 20);
-		super.getContentPane().add(txtUsername);
+		frmJournalPublicationLogin.getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
 		
 		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(listen);
 		btnLogin.setBounds(25, 128, 89, 23);
-		super.getContentPane().add(btnLogin);
+		frmJournalPublicationLogin.getContentPane().add(btnLogin);
 		
 		//Sign up button directs you to GUI_Sign_UP to create an account 
 		JButton btnSignUp = new JButton("Sign Up");
 		btnSignUp.addActionListener(listen);
 		btnSignUp.setBounds(262, 128, 89, 23);
-		super.getContentPane().add(btnSignUp);
+		frmJournalPublicationLogin.getContentPane().add(btnSignUp);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(132, 79, 219, 20);
-		super.getContentPane().add(passwordField);
+		frmJournalPublicationLogin.getContentPane().add(passwordField);
+	}
+	
+	public void setVisible (boolean x) {
+		frmJournalPublicationLogin.setVisible(x);
 	}
 }

@@ -1,6 +1,7 @@
 package GUI;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
@@ -10,8 +11,10 @@ import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
-public class GUI_Reviewer extends JFrame{
+import Backend.Driver;
 
+public class GUI_Reviewer {
+	private Driver drive;
 	private JFrame frame;
 
 	/**
@@ -33,8 +36,10 @@ public class GUI_Reviewer extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public GUI_Reviewer(ActionListener l) {
-		initialize(l);
+	public GUI_Reviewer(Driver d) {
+		frame = new JFrame();
+		this.drive=d;
+		initialize(drive.getAction());
 	}
 
 	/**
@@ -42,38 +47,54 @@ public class GUI_Reviewer extends JFrame{
 	 * @param l 
 	 */
 	private void initialize(ActionListener l) {
-		//frame = new JFrame();
-		super.getContentPane().setBackground(Color.decode("#cee5f2"));
-		super.setBounds(100, 100, 437, 594);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.getContentPane().setLayout(null);
+		frame.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frame.setBounds(100, 100, 437, 594);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
 		//Lets you switch to author page
 		JButton btnAuthorPage = new JButton("Author Page");
 		btnAuthorPage.setBounds(10, 494, 104, 23);
-		super.getContentPane().add(btnAuthorPage);
+		frame.getContentPane().add(btnAuthorPage);
+		
 		//Back brings you back to last page "Login"
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(308, 494, 89, 23);
-		super.getContentPane().add(btnBack);
+		btnBack.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				drive.setReviewerVisible(false);
+				drive.setAdminVisible(true);
+				
+			}
+		});
+		frame.getContentPane().add(btnBack);
 		
 		JLabel lblSubmittedPapersFor = new JLabel("Submitted Papers for Review");
 		lblSubmittedPapersFor.setBounds(10, 30, 228, 14);
-		super.getContentPane().add(lblSubmittedPapersFor);
+		frame.getContentPane().add(lblSubmittedPapersFor);
+		
 		//Select submission to review
 		JButton btnReview = new JButton("Review");
 		btnReview.setBounds(10, 279, 89, 23);
-		super.getContentPane().add(btnReview);
+		frame.getContentPane().add(btnReview);
 		
 		JLabel lblAuthorTicket = new JLabel("Reviewer Ticket");
 		lblAuthorTicket.setBounds(10, 313, 104, 14);
-		super.getContentPane().add(lblAuthorTicket);
+		frame.getContentPane().add(lblAuthorTicket);
+		
 		//This List provides all the submitted tickets by authors
 		JList listAuthorTickets = new JList();
 		listAuthorTickets.setBounds(10, 338, 401, 145);
-		super.getContentPane().add(listAuthorTickets);
+		frame.getContentPane().add(listAuthorTickets);
+		
 		//This list provides all the submitted papers by authors.
 		JList listSubmittedPapers = new JList();
 		listSubmittedPapers.setBounds(10, 55, 401, 213);
-		super.getContentPane().add(listSubmittedPapers);
+		frame.getContentPane().add(listSubmittedPapers);
+	}
+	
+	public void setVisible(boolean x) {
+		frame.setVisible(x);
 	}
 }

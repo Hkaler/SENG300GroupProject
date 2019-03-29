@@ -88,19 +88,22 @@ public class Driver implements ActionListener{
 		if(e.getActionCommand().equals("Continue")) {
 			signUp.setVisible(false);
 		}
-		if(e.getActionCommand().equals("Back")) {
-			signUp.setVisible(false);
-			adminTics.setVisible(false);
-		}
+//		if(e.getActionCommand().equals("Back")) {
+//			signUp.setVisible(false);
+//			adminTics.setVisible(false);
+//		}
 		// this is the "sign up" button in the Sign_Up GUI to create a new record for a new user
 		if(e.getActionCommand().equals("Continue")) {
 			signUp.setVisible(false);
 		}
-		if(e.getActionCommand().equals("Back")) {
-			signUp.setVisible(false);
-		}
+//		if(e.getActionCommand().equals("Back")) {
+//			signUp.setVisible(false);
+//		}
 	}
 	
+	public ActionListener getAction() {
+		return this;
+	}
 	public static void main(String[] args) {
 		Driver drive = new Driver();
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -117,5 +120,20 @@ public class Driver implements ActionListener{
 				 }
 		 	}); 
 	}
-
+	
+	public void setSignupVisibile (boolean x) {
+		signUp.setVisible(x);
+	}
+	
+	public void setLoginVisible (boolean x) {
+		login.setVisible(x);
+	}
+	
+	public void setReviewerVisible(boolean x) {
+		reviewer.setVisible(x);
+	}
+	
+	public void setAdminVisible(boolean x) {
+		admin.setVisible(x);
+	}
 }

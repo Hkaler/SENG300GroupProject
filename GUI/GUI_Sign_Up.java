@@ -1,5 +1,6 @@
 package GUI;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
@@ -10,15 +11,21 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
+
+import Backend.Driver;
+
 import java.awt.Color;
 
-public class GUI_Sign_Up extends JFrame{
-
+public class GUI_Sign_Up {
+	private Driver drive;
 	private JFrame frmSignUp;
 	private JTextField txtEnterYourEmail;
 	private JTextField textField;
 	private JPasswordField signup_passwordField;
-
+	private JLabel lblEnterYourPassword;
+	private JLabel lblUsername;
+	private JLabel lblRole;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -38,8 +45,10 @@ public class GUI_Sign_Up extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public GUI_Sign_Up(ActionListener l) {
-		initialize(l);
+	public GUI_Sign_Up(Driver d) {
+		this.drive = d;
+		frmSignUp = new JFrame();
+		initialize(drive.getAction());
 	}
 
 	/**
@@ -47,50 +56,74 @@ public class GUI_Sign_Up extends JFrame{
 	 * @param l 
 	 */
 	private void initialize(ActionListener l) {
-//		frmSignUp = new JFrame();
-		super.getContentPane().setBackground(Color.decode("#cee5f2"));
-		super.setTitle("Continue");
-		super.setBounds(100, 100, 396, 245);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.getContentPane().setLayout(null);
+		frmSignUp.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frmSignUp.setTitle("Continue");
+		frmSignUp.setBounds(100, 100, 396, 245);
+		frmSignUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSignUp.getContentPane().setLayout(null);
 		
 		txtEnterYourEmail = new JTextField();
 		txtEnterYourEmail.setHorizontalAlignment(SwingConstants.LEFT);
 		txtEnterYourEmail.setBounds(153, 21, 210, 29);
-		super.getContentPane().add(txtEnterYourEmail);
+		frmSignUp.getContentPane().add(txtEnterYourEmail);
 		txtEnterYourEmail.setColumns(10);
 		//Submit button allows you to submit your newly created login credentials
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(274, 172, 89, 23);
 		btnSubmit.addActionListener(l);
-		super.getContentPane().add(btnSubmit);
+		frmSignUp.getContentPane().add(btnSubmit);
 		
-		JLabel lblUsername = new JLabel("Enter your username:");
+		lblUsername = new JLabel("Enter your username:");
 		lblUsername.setBounds(20, 24, 123, 22);
-		super.getContentPane().add(lblUsername);
+		frmSignUp.getContentPane().add(lblUsername);
 		
-		JLabel lblEnterYourPassword = new JLabel("Enter your password");
+		lblEnterYourPassword = new JLabel("Enter your password");
 		lblEnterYourPassword.setBounds(20, 76, 123, 29);
-		super.getContentPane().add(lblEnterYourPassword);
+		frmSignUp.getContentPane().add(lblEnterYourPassword);
+		
 		//Back button just takes you back to previous screen "GUI_Login"
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(20, 172, 89, 23);
-		btnBack.addActionListener(l);
-		super.getContentPane().add(btnBack);
+		btnBack.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				drive.setSignupVisibile(false);
+				drive.setLoginVisible(true);
+				
+			}
+		});
+		frmSignUp.getContentPane().add(btnBack);
 		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.LEFT);
 		textField.setBounds(153, 49, 210, 29);
 		textField.setColumns(10);
-		super.getContentPane().add(textField);
+		frmSignUp.getContentPane().add(textField);
 		
-		JLabel lblRole = new JLabel("Enter your role::");
+		lblRole = new JLabel("Enter your role:");
 		lblRole.setBounds(20, 57, 123, 14);
-		super.getContentPane().add(lblRole);
+		frmSignUp.getContentPane().add(lblRole);
 		
 		signup_passwordField = new JPasswordField();
 		signup_passwordField.setHorizontalAlignment(SwingConstants.LEFT);
 		signup_passwordField.setBounds(153, 78, 210, 25);
-		super.getContentPane().add(signup_passwordField);
+		frmSignUp.getContentPane().add(signup_passwordField);
+	}
+	
+	public void setVisible(boolean x) {
+		frmSignUp.setVisible(x);
+	}
+	
+	public String getPassword () {
+		String temp = new String(signup_passwordField.getPassword());
+		return temp;
+	}
+	
+	public String getEmail() {
+		return txtEnterYourEmail.getText();
+	}
+	
+	public String getUsernameText() {
+		return textField.getText();
 	}
 }

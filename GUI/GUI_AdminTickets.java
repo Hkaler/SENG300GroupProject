@@ -10,7 +10,7 @@ import javax.swing.JButton;
 
 //Admin tickets should be tagged with the 
 
-public class GUI_AdminTickets extends JFrame{
+public class GUI_AdminTickets{
 
 	private JFrame frame;
 
@@ -34,6 +34,7 @@ public class GUI_AdminTickets extends JFrame{
 	 * Create the application.
 	 */
 	public GUI_AdminTickets(ActionListener listen) {
+		frame = new JFrame();
 		initialize(listen);
 	}
 
@@ -41,26 +42,29 @@ public class GUI_AdminTickets extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(ActionListener listen) {
-		//frame = new JFrame();
-		super.getContentPane().setBackground(Color.decode("#cee5f2"));
-		super.setBounds(100, 100, 450, 300);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.getContentPane().setLayout(null);
+		frame.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
 		JList listTickets = new JList();
 		listTickets.setBounds(29, 52, 214, 82);
-		super.getContentPane().add(listTickets);
+		frame.getContentPane().add(listTickets);
 		
 		//select a ticket
 		JLabel lblTickets = new JLabel("Tickets");
 		lblTickets.setBounds(32, 27, 46, 14);
-		super.getContentPane().add(lblTickets);
+		frame.getContentPane().add(lblTickets);
 		
 		//move selected ticket to 'resolved' list
 		JButton btnResolve = new JButton("Resolve");
 		btnResolve.addActionListener(listen);
 		btnResolve.setBounds(29, 163, 89, 23);
-		super.getContentPane().add(btnResolve);
+		frame.getContentPane().add(btnResolve);
+	}
+	
+	public void setVisible(boolean x) {
+		frame.setVisible(x);
 	}
 
 }
