@@ -5,21 +5,21 @@ import java.io.*;
 public class Login {
 
 	// Add new user to the system and return instance
-	public User signUp(String username, String password, String role, String email) throws Exception {
+	public void signUp(String username, String password, String role, String email) throws Exception {
 		try {
 			FileWriter fw = new FileWriter("users.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 			pw.printf("\n" + username + " " + password + " " + role + " " + email);
-			User newUser = new User(username,password,role,email);
+			//User newUser = new User(username,password,role,email);
 			pw.close();
-			return newUser; 
+			//return newUser; 
 		}
 		catch (Exception e) {
 			System.out.println("Error: unable to write to file");
 			e.printStackTrace();
 		}
-		return null;
+		//return null;
 	}
 
 	// Authenticate user and return instance

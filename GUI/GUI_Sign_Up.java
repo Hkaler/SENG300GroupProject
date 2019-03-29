@@ -1,4 +1,5 @@
 package GUI;
+import Backend.Login; 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,8 +35,8 @@ public class GUI_Sign_Up {
 	private JTextField Sign_Up_Username;
 	private JPasswordField Sign_Up_Password;
 	private JTextField Sign_Up_Email;
-	private String roles[] = {"Author", "Reviewer", "Administrator"};
-	private String currentRole = "Author"; //Defaults to Author
+	private String roles[] = {"author", "reviewer", "admin"};
+	private String currentRole = "author"; //Defaults to Author
 	private String[] Entry = new String[4];
 
 	/**
@@ -67,7 +68,7 @@ public class GUI_Sign_Up {
 	 * Initialize the contents of the frame.
 	 * @param l
 	 */
-	private void initialize(ActionListener l) {
+	private void initialize(ActionListener l){
 		frmSignUp.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frmSignUp.setTitle("Sign Up");
 		frmSignUp.setBounds(100, 100, 396, 245);
@@ -140,6 +141,12 @@ public class GUI_Sign_Up {
 						Entry[1] = currentRole;
 						Entry[2] = String.copyValueOf(Sign_Up_Password.getPassword());
 						Entry[3] = Sign_Up_Email.getText();
+						Login register = new Login();
+						try {
+						register.signUp(Entry[0],Entry[2],Entry[1],Entry[3]); }
+						catch (Exception x) {
+							x.printStackTrace();
+						}
 						frmSignUp.dispose();
 						drive.setLoginVisible(true);
 					}
