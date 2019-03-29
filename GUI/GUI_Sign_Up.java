@@ -143,7 +143,7 @@ public class GUI_Sign_Up {
 						Entry[3] = Sign_Up_Email.getText();
 						Login register = new Login();
 						try {
-						register.signUp(Entry[0],Entry[2],Entry[1],Entry[3]); }
+							register.signUp(Entry[0],Entry[2],Entry[1],Entry[3]); }
 						catch (Exception x) {
 							x.printStackTrace();
 						}

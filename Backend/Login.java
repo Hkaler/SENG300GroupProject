@@ -4,22 +4,19 @@ import java.io.*;
 
 public class Login {
 
-	// Add new user to the system and return instance
+	// Add new user to the users.txt file 
 	public void signUp(String username, String password, String role, String email) throws Exception {
 		try {
 			FileWriter fw = new FileWriter("users.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 			pw.printf("\n" + username + " " + password + " " + role + " " + email);
-			//User newUser = new User(username,password,role,email);
-			pw.close();
-			//return newUser; 
+			pw.close(); 
 		}
 		catch (Exception e) {
 			System.out.println("Error: unable to write to file");
 			e.printStackTrace();
 		}
-		//return null;
 	}
 
 	// Authenticate user and return instance
@@ -45,7 +42,8 @@ public class Login {
 					  sc.nextLine();
 				  }
 			  }
-		  	sc.close();
+		  System.out.println("Invalid username or password. Please retry. ");
+		  sc.close();
 	 }
 	 catch (Exception e) {
 		 System.out.println("Error: unable to read file");
