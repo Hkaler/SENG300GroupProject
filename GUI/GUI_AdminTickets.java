@@ -62,16 +62,13 @@ public class GUI_AdminTickets{
 
 		//move selected ticket to 'resolved' list
 		JButton btnResolve = new JButton("Resolve");
-		btnResolve.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Delete the selected element of the list on backend
-				//listTickets.getSelectedIndex()
-				frame.dispose();
-				GUI_Admin.main(null);
-			}
-		});
+		btnResolve.addActionListener(listen);
 		btnResolve.setBounds(165, 205, 89, 23);
 		frame.getContentPane().add(btnResolve);
+	}
+	
+	public void dispose() {
+		frame.dispose();
 	}
 
 	public void setVisible(boolean x) {

@@ -44,7 +44,7 @@ public class GUI_Reviewer{
 	 * Create the application.
 	 */
 	public GUI_Reviewer(Driver d) {
-		frame = new JFrame();
+		//frame = new JFrame();
 		this.drive=d;
 		initialize(drive.getAction());
 	}
@@ -53,7 +53,7 @@ public class GUI_Reviewer{
 	 * Initialize the contents of the frame.
 	 * @param l
 	 */
-	private void initialize() {
+	private void initialize(ActionListener l) {
 		frmReviewerMainPage = new JFrame();
 		frmReviewerMainPage.setTitle("Reviewer Main Page");
 		frmReviewerMainPage.getContentPane().setBackground(Color.decode("#cee5f2"));
@@ -66,7 +66,7 @@ public class GUI_Reviewer{
 		btnAuthorPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmReviewerMainPage.dispose();
-				GUI_Author_Main.main(Ticket);
+				drive.setAuthorMainVisible(true);
 			}
 		});
 		btnAuthorPage.setBounds(10, 11, 104, 23);
@@ -77,7 +77,7 @@ public class GUI_Reviewer{
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmReviewerMainPage.dispose();
-				GUI_Login.main(Ticket);
+				drive.setLoginVisible(true);
 			}
 		});
 		btnBack.setBounds(10, 325, 89, 23);
@@ -92,7 +92,7 @@ public class GUI_Reviewer{
 		btnReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmReviewerMainPage.dispose();
-				GUI_Revision_Status.main(null);
+				drive.setRevisionStatusVisible(true);
 			}
 		});
 		btnReview.setBounds(96, 291, 89, 23);
@@ -129,6 +129,6 @@ public class GUI_Reviewer{
 	}
 
 	public void setVisible(boolean x) {
-		frame.setVisible(x);
+		frmReviewerMainPage.setVisible(x);
 	}
 }

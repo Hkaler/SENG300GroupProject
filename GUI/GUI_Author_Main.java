@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
+import Backend.Driver;
 import Backend.OpenFile;
 
 import java.awt.event.ActionListener;
@@ -26,6 +27,7 @@ public class GUI_Author_Main {
 	private JTextField txtSubmitPaper;
 	private JTextField txtRevision;
 	private String[] Ticket = new String[1];
+	private Driver drive;
 	/**
 	 * Launch the application.
 	 */
@@ -47,10 +49,11 @@ public class GUI_Author_Main {
 	 * Create the application.
 	 * @throws Exception 
 	 */
-	public GUI_Author_Main(ActionListener listen)  {
+	public GUI_Author_Main(Driver d)  {
 		frmAuthorMainPage = new JFrame();
 		try {
-			initialize(listen);
+			this.drive = d;
+			initialize(drive.getAction());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -179,7 +182,7 @@ public class GUI_Author_Main {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmAuthorMainPage.dispose();
-				GUI_Login.main(Ticket);
+				drive.setLoginVisible(true);
 			}
 		});
 		btnBack.setBounds(10, 352, 89, 23);

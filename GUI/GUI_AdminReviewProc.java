@@ -13,9 +13,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
+import Backend.Driver;
+
 public class GUI_AdminReviewProc{
 
 	private JFrame frmAdministratorReviewProcesses;
+	private Driver drive;
 
 	/**
 	 * Launch the application.
@@ -36,15 +39,16 @@ public class GUI_AdminReviewProc{
 	/**
 	 * Create the application.
 	 */
-	public GUI_AdminReviewProc(ActionListener l) {
-		frame = new JFrame();
-		initialize(l);
+	public GUI_AdminReviewProc(Driver d) {
+		//frame = new JFrame();
+		this.drive = d;
+		initialize(d.getAction());
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(ActionListener l) {
 		frmAdministratorReviewProcesses = new JFrame();
 		frmAdministratorReviewProcesses.setTitle("Administrator Review Processes");
 		frmAdministratorReviewProcesses.getContentPane().setBackground(Color.decode("#cee5f2"));
@@ -60,18 +64,13 @@ public class GUI_AdminReviewProc{
 		//Use to assign a reviewer (need 3 min) to an submission TBD
 		//Select a submission and a reviewer then press assign to pair them on backend
 		JButton btnAssign = new JButton("Assign");
-		btnAssign.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnAssign.addActionListener(l);
 		btnAssign.setBounds(420, 76, 89, 23);
 		frmAdministratorReviewProcesses.getContentPane().add(btnAssign);
+		
 		//Judge button allows the reviewer to determine if the paper is good for publication determined by the status of the radio button
 		JButton btnJudge = new JButton("Judge");
-		btnJudge.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnJudge.addActionListener(l);
 		btnJudge.setBounds(10, 181, 89, 23);
 		frmAdministratorReviewProcesses.getContentPane().add(btnJudge);
 
@@ -102,14 +101,18 @@ public class GUI_AdminReviewProc{
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmAdministratorReviewProcesses.dispose();
-				GUI_Admin.main(null);
+				drive.setAdminVisible(true);
 			}
 		});
 		btnBack.setBounds(10, 284, 89, 23);
 		frmAdministratorReviewProcesses.getContentPane().add(btnBack);
 	}
 
+	public void dispose() {
+		frmAdministratorReviewProcesses.dispose();
+	}
+	
 	public void setVisible(boolean x) {
-		frame.setVisible(x);
+		frmAdministratorReviewProcesses.setVisible(x);
 	}
 }

@@ -80,10 +80,10 @@ public class GUI_Sign_Up {
 		frmSignUp.getContentPane().add(Sign_Up_Username);
 		Sign_Up_Username.setColumns(10);
 
-
-		lblUsername = new JLabel("Enter your username:");
-		lblUsername.setBounds(20, 24, 123, 22);
-		frmSignUp.getContentPane().add(lblUsername);
+//
+//		lblUsername = new JLabel("Enter your username:");
+//		lblUsername.setBounds(20, 24, 123, 22);
+//		frmSignUp.getContentPane().add(lblUsername);
 
 		JLabel lblEnterYourPassword = new JLabel("Enter your password:");
 		lblEnterYourPassword.setBounds(20, 76, 123, 29);
@@ -94,18 +94,10 @@ public class GUI_Sign_Up {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSignUp.dispose();
-				GUI_Login.main(null);
+				drive.setLoginVisible(true);
 			}
 		});
 		btnBack.setBounds(20, 172, 89, 23);
-		btnBack.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				drive.setSignupVisibile(false);
-				drive.setLoginVisible(true);
-
-			}
-		});
 		frmSignUp.getContentPane().add(btnBack);
 
 		JLabel lblRole = new JLabel("Enter your role:");
@@ -149,7 +141,7 @@ public class GUI_Sign_Up {
 						Entry[2] = String.copyValueOf(Sign_Up_Password.getPassword());
 						Entry[3] = Sign_Up_Email.getText();
 						frmSignUp.dispose();
-						GUI_Login.main(Entry);
+						drive.setLoginVisible(true);
 					}
 				});
 				btnSubmit.setBounds(274, 172, 89, 23);
@@ -162,15 +154,15 @@ public class GUI_Sign_Up {
 	}
 
 	public String getPassword () {
-		String temp = new String(signup_passwordField.getPassword());
+		String temp = new String(Sign_Up_Password.getPassword());
 		return temp;
 	}
 
 	public String getEmail() {
-		return txtEnterYourEmail.getText();
+		return Sign_Up_Email.getText();
 	}
 
 	public String getUsernameText() {
-		return textField.getText();
+		return Sign_Up_Username.getText();
 	}
 }

@@ -11,6 +11,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Backend.Driver;
 import Backend.Login;
 
 public class GUI_Login {
@@ -18,6 +19,7 @@ public class GUI_Login {
 	private JFrame frmLogin;
 	private JTextField Login_Username;
 	private JPasswordField Login_Password;
+	private Driver d;
 
 	/**
 	 * Launch the application.
@@ -38,9 +40,10 @@ public class GUI_Login {
 	/**
 	 * Create the application.
 	 */
-	public GUI_Login(ActionListener listen) {
+	public GUI_Login(Driver d) {
+		this.d = d;
 		frmLogin = new JFrame();
-		initialize(listen);
+		initialize(d.getAction());
 	}
 
 	/**
@@ -62,7 +65,7 @@ public class GUI_Login {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(ActionListener l) {
 		//frmLogin = new JFrame();
 		frmLogin.getContentPane().setBackground(Color.decode("#cee5f2"));
 		frmLogin.setTitle("Login");
@@ -85,29 +88,16 @@ public class GUI_Login {
 		Login_Username.setColumns(10);
 		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			/* we're creating a demo format for linking login credentials to appropriate GUI
-			i.e logging in with admin credentials means getting the admin GUI*/
-			//Make an asynchronous thread to handle new windows
-			public void actionPerformed(ActionEvent arg0) {
-				if (Login.newUser.getRole().equals("admin")) {
-					try {
-						new GUI_Author_Main();
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		});
+		btnLogin.addActionListener(l);
 		btnLogin.setBounds(300, 183, 89, 23);
 		frmLogin.getContentPane().add(btnLogin);
+		
 		//"Sign Up" closes this frame and opens a Sign up frame.
 		JButton btnSignUp = new JButton("Sign Up");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmLogin.dispose();
-				GUI_Sign_Up.main(null);;
+				d.setSignupVisibile(true);
 			}
 		});
 		//btnSignUp.addActionListener(l);
@@ -118,8 +108,13 @@ public class GUI_Login {
 		Login_Password.setBounds(146, 79, 243, 20);
 		frmLogin.getContentPane().add(Login_Password);
 	}
+	
+	public void dispose() {
+		frmLogin.dispose();
+	}
+	
 
 	public void setVisible (boolean x) {
-		frmJournalPublicationLogin.setVisible(x);
+		frmLogin.setVisible(x);
 	}
 }

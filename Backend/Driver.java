@@ -60,20 +60,20 @@ public class Driver implements ActionListener{
 			signUp.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Reviewer")) {
-			admin.setVisible(false);
+			admin.disposeAdmin();
 			reviewer.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Review Processes")) {
-			admin.setVisible(false);
+			admin.disposeAdmin();
 			reviewProc.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Review Tickets")) {
-			admin.setVisible(false);
+			admin.disposeAdmin();
 			adminTics.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Assign")) {
 			
-			reviewProc.setVisible(false);
+			//reviewProc.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Judge")) {
 			reviewProc.setVisible(false);
@@ -82,8 +82,8 @@ public class Driver implements ActionListener{
 			adminTics.setVisible(false);
 		}
 		if(e.getActionCommand().equals("Resolve")) {
+			adminTics.dispose();
 			admin.setVisible(true);
-			adminTics.setVisible(false);
 		}
 		// this is the "sign up" button in the Sign_Up GUI to create a new record for a new user
 		if(e.getActionCommand().equals("Continue")) {
@@ -130,6 +130,15 @@ public class Driver implements ActionListener{
 				 }
 		 	}); 
 	}
+	
+	public void setRevisionStatusVisible(boolean x) {
+		revisionStatus.setVisible(x);
+	}
+	
+	public void setAuthorMainVisible(boolean x) {
+		authorMain.setVisible(x);
+	}
+	
 	
 	public void setSignupVisibile (boolean x) {
 		signUp.setVisible(x);

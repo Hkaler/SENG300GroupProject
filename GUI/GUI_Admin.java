@@ -35,7 +35,7 @@ public class GUI_Admin {
 	 * Create the application.
 	 */
 	public GUI_Admin(Driver d) {
-		frame = new JFrame();
+		//frame = new JFrame();
 		this.drive = d;
 		initialize(d.getAction());
 	}
@@ -52,41 +52,29 @@ public class GUI_Admin {
 		frmAdministratorMainPage.getContentPane().setLayout(null);
 
 		JButton btnReviewer = new JButton("Reviewer");
-		btnReviewer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmAdministratorMainPage.dispose();
-				GUI_Reviewer.main(null);
-			}
-		});
+		btnReviewer.addActionListener(listen);
 		btnReviewer.setBounds(10, 11, 89, 23);
 		frmAdministratorMainPage.getContentPane().add(btnReviewer);
 
 		//Opens GUI_AdminReviewProc window
 		JButton btnReviewProcesses = new JButton("Review Processes");
-		btnReviewProcesses.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmAdministratorMainPage.dispose();
-				GUI_AdminReviewProc.main(null);
-			}
-		});
+		btnReviewProcesses.addActionListener(listen);
 		btnReviewProcesses.setToolTipText("");
 		btnReviewProcesses.setBounds(277, 11, 143, 23);
 		frmAdministratorMainPage.getContentPane().add(btnReviewProcesses);
 
 		//opens GUI_AdminTickets window
 		JButton btnReviewTickets = new JButton("Review Tickets");
-		btnReviewTickets.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmAdministratorMainPage.dispose();
-				GUI_AdminTickets.main(null);
-			}
-		});
+		btnReviewTickets.addActionListener(listen);
 		btnReviewTickets.setBounds(109, 11, 158, 23);
 		frmAdministratorMainPage.getContentPane().add(btnReviewTickets);
 	}
-
+	
+	public void disposeAdmin() {
+		frmAdministratorMainPage.dispose();
+	}
 	public void setVisible(boolean x) {
-		frame.setVisible(x);
+		frmAdministratorMainPage.setVisible(x);
 	}
 }
 
