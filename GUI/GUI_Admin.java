@@ -7,60 +7,78 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GUI_Admin {
+public class GUI_Admin extends JFrame{
 
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI_Admin window = new GUI_Admin();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					GUI_Admin window = new GUI_Admin();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public GUI_Admin() {
-		initialize();
+	public GUI_Admin(ActionListener listen) {
+		initialize(listen);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.decode("#cee5f2"));
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		//Switch to reviewer mode
+	private void initialize(ActionListener listen) {
+		//frame = new JFrame();
+		super.getContentPane().setBackground(Color.decode("#cee5f2"));
+		super.setBounds(100, 100, 450, 300);
+		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super.getContentPane().setLayout(null);
 		JButton btnReviewer = new JButton("Reviewer");
-		btnReviewer.setBounds(10, 227, 89, 23);
-		frame.getContentPane().add(btnReviewer);
+		btnReviewer.addActionListener(listen);
+		btnReviewer.setBounds(10, 227, 113, 23);
+		super.getContentPane().add(btnReviewer);
 		
 		//Opens GUI_AdminReviewProc window
 		JButton btnReviewProcesses = new JButton("Review Processes");
-		btnReviewProcesses.setBounds(10, 24, 143, 23);
-		frame.getContentPane().add(btnReviewProcesses);
+		btnReviewProcesses.setBounds(10, 24, 171, 23);
+		btnReviewProcesses.addActionListener(listen);
+		super.getContentPane().add(btnReviewProcesses);
 		
 		//opens GUI_AdminTickets window
 		JButton btnReviewTickets = new JButton("Review Tickets");
-		btnReviewTickets.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnReviewTickets.addActionListener(listen);
 		btnReviewTickets.setBounds(10, 120, 158, 23);
-		frame.getContentPane().add(btnReviewTickets);
+		super.getContentPane().add(btnReviewTickets);
 	}
 }
+
+
+
+
+//
+//	/**
+//	 * Initialize the contents of the frame.
+//	 * @param listen 
+//	 */
+//	private void initialize(ActionListener listen) {
+//		//frame = new JFrame();
+//		super.setBounds(100, 100, 450, 300);
+//		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		super.getContentPane().setLayout(null);
+//		
+//		//Switch to reviewer mode
+//		
+//	}
+//
+//
+//}

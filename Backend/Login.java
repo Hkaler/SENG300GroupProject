@@ -3,28 +3,28 @@ import java.util.*;
 import java.io.*;
 
 public class Login {
-	
-	public static User newUser; 
-	
-	// Add new user to the system 
-	public static void signUp(String username, String password, String role) throws Exception {
+
+	// Add new user to the system
+	public User signUp(String username, String password, String role) throws Exception {
 		try {
 			FileWriter fw = new FileWriter("users.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 			pw.printf("\n" + username + " " + password + " " + role);
-			newUser = new User(username,password,role);
+			User newUser = new User(username,password,role);
 			pw.close();
+			return newUser; 
 		}
 		catch (Exception e) {
 			System.out.println("Error: unable to write to file");
 			e.printStackTrace();
 		}
+		return null; 
 	}
-	
-	// Authenticate user and create instance 
-	public static void logIn(String username, String password) throws Exception {
-	  String tempUsername, tempPassword, role; 
+
+	// Authenticate user and create instance
+	public User logIn(String username, String password) throws Exception {
+	  String tempUsername, tempPassword, role;
 	  try {
 		  String dir = System.getProperty("user.dir");
 		  dir += "\\users.txt";
@@ -35,9 +35,10 @@ public class Login {
 			  tempPassword = sc.next();
 			  if (username.equals(tempUsername) && password.equals(tempPassword)) {
 					  role = sc.next();
-					  newUser = new User(username,password,role);
+					  User newUser = new User(username,password,role);
 					  System.out.printf("User <%s> is now active under <%s> role.",username,role);
-					  break;
+					  sc.close();
+					  return newUser; 
 				  }
 				  else {
 					  sc.nextLine();
@@ -46,9 +47,9 @@ public class Login {
 		  	sc.close();
 	 }
 	 catch (Exception e) {
-		 System.out.println("Error: unable to read file");
 		 e.printStackTrace();
 	 }
+	 return null;
   }
 }
   
