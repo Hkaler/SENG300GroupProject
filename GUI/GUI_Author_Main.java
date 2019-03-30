@@ -170,11 +170,7 @@ public class GUI_Author_Main {
 		scrollPaneSupport.setViewportView(textAreaSupport);
 		//Submit button is used to submit a support ticket
 		JButton btnSubmitSupport = new JButton("Submit");
-		btnSubmitSupport.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Ticket[0] = textAreaReview.getText();
-			}
-		});
+		btnSubmitSupport.addActionListener(listen);
 		btnSubmitSupport.setBounds(125, 352, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnSubmitSupport);
 		

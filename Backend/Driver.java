@@ -15,6 +15,7 @@ public class Driver implements ActionListener{
 	private GUI_Reviewer reviewer = new GUI_Reviewer(this);
 	private GUI_Revision_Status revisionStatus = new GUI_Revision_Status(this);
 	private GUI_Sign_Up signUp = new GUI_Sign_Up(this);
+	private FileUI fileSubmit = new FileUI(this);
 	Login log = new Login();
 	User newUser; 
 
@@ -50,6 +51,11 @@ public class Driver implements ActionListener{
 			}
 			login.clearFields();
 			
+		}
+		// submit a file
+		if(e.getActionCommand().equals("Submit")) {
+			authorMain.setVisible(false);
+			fileSubmit.setVisible(true);
 		}
 		if(e.getActionCommand().equals("Sign Up")) {
 			// open Sign Up window
