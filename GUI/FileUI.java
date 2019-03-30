@@ -75,12 +75,12 @@ public class FileUI {
 		mntmRead.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				System.out.println(System.getProperty("user.dir"));
-				String fileToRead = "src\\data.txt";
+				String dir = System.getProperty("user.dir");
+				dir += "\\data.txt";
 				String lineBeingRead ="";
 				String csvSplitBy =",";
 				try {
-					FileReader fr = new FileReader(fileToRead);
+					FileReader fr = new FileReader(dir);
 					Scanner sc = new Scanner(fr);
 					model.removeAllElements();
 					while(sc.hasNextLine()) {
