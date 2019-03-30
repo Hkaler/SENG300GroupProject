@@ -81,10 +81,10 @@ public class GUI_Sign_Up {
 		frmSignUp.getContentPane().add(Sign_Up_Username);
 		Sign_Up_Username.setColumns(10);
 
-//
-//		lblUsername = new JLabel("Enter your username:");
-//		lblUsername.setBounds(20, 24, 123, 22);
-//		frmSignUp.getContentPane().add(lblUsername);
+
+		JLabel lblUsername = new JLabel("Enter your username:");
+		lblUsername.setBounds(20, 24, 123, 22);
+		frmSignUp.getContentPane().add(lblUsername);
 
 		JLabel lblEnterYourPassword = new JLabel("Enter your password:");
 		lblEnterYourPassword.setBounds(20, 76, 123, 29);
@@ -143,7 +143,7 @@ public class GUI_Sign_Up {
 						Entry[3] = Sign_Up_Email.getText();
 						Login register = new Login();
 						try {
-						register.signUp(Entry[0],Entry[2],Entry[1],Entry[3]); }
+							register.signUp(Entry[0],Entry[2],Entry[1],Entry[3]); }
 						catch (Exception x) {
 							x.printStackTrace();
 						}

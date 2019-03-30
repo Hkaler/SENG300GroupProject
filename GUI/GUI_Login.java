@@ -113,6 +113,11 @@ public class GUI_Login {
 		frmLogin.dispose();
 	}
 	
+	public void clearFields() {
+		Login_Username.setText("");
+		Login_Password.setText("");
+	}
+	
 
 	public void setVisible (boolean x) {
 		frmLogin.setVisible(x);
