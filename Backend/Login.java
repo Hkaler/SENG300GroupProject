@@ -53,6 +53,37 @@ public class Login {
 	 }
 	 return null;
   }
+	
+	// Get all reviewers
+	public User[] getReviewers() throws Exception {
+		User[] reviewerList = new User[10];
+		String tempUsername, tempPassword, role, email;
+		  try {
+			  String dir = System.getProperty("user.dir");
+			  dir += "\\users.txt";
+			  File users = new File(dir);
+			  Scanner sc = new Scanner(users);
+			  int i = 0;
+			  while (sc.hasNextLine()) {
+				  tempUsername = sc.next();
+				  tempPassword = sc.next();
+				  role = sc.next();
+				  if (role.equals("reviewer")) {
+					  email = sc.next();
+					  User newUser = new User(tempUsername,tempPassword,role,email);
+					  reviewerList[i] = newUser;
+					  i++;
+				  } else {
+					  sc.nextLine();
+				  }
+			  }
+			  sc.close();
+		 } catch (Exception e) {
+			 System.out.println("Error: unable to read file");
+			 e.printStackTrace();
+		 }
+		 return reviewerList;
+	}
 }
 
 //  public static void main(String[] args) throws Exception {

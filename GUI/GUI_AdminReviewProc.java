@@ -14,11 +14,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 import Backend.Driver;
+import Backend.User;
 
 public class GUI_AdminReviewProc{
 
 	private JFrame frmAdministratorReviewProcesses;
 	private Driver drive;
+	//private User[] reviewers = Login.getReviewers[];
 
 	/**
 	 * Launch the application.
