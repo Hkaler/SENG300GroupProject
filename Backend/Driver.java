@@ -22,7 +22,6 @@ public class Driver implements ActionListener{
 	public Driver() {
 		
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

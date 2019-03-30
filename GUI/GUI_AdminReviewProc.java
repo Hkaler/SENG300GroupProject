@@ -14,13 +14,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 import Backend.Driver;
+import Backend.Login;
 import Backend.User;
 
 public class GUI_AdminReviewProc{
 
 	private JFrame frmAdministratorReviewProcesses;
 	private Driver drive;
-	//private User[] reviewers = Login.getReviewers[];
+	private String reviewers[];
 
 	/**
 	 * Launch the application.
@@ -81,8 +82,16 @@ public class GUI_AdminReviewProc{
 		listSubmissionInfo.setBounds(210, 29, 142, 278);
 		frmAdministratorReviewProcesses.getContentPane().add(listSubmissionInfo);
 
+		//assign reviewers values
+		try {
+			reviewers = Login.getReviewers();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		//Dropdown box of all the available Reviewers
-		JComboBox comboBox = new JComboBox();
+		JComboBox comboBox = new JComboBox(reviewers);
 		comboBox.setBounds(362, 29, 190, 36);
 		frmAdministratorReviewProcesses.getContentPane().add(comboBox);
 

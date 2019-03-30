@@ -1,5 +1,11 @@
-ajit1 1234 admin hello@gg.ca
+ajit1 1234 admin ajit@gg.ca
 
-jose1 1234 author wassup@gg.ca
+jose1 1234 author jose@gg.ca
 
-sehaj1 1234 reviewer hi@gg.ca
+sehaj1 1234 reviewer sehaj@gg.ca
+
+taylor1 1234 reviewer taylor@gg.ca
+
+pavel1 1234 reviewer pavel@gg.ca
+
+hardeep1 1234 reviewer hardeep@gg.ca

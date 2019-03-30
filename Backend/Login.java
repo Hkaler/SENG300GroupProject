@@ -53,8 +53,8 @@ public class Login {
   }
 	
 	// Get all reviewers
-	public User[] getReviewers() throws Exception {
-		User[] reviewerList = new User[10];
+	public static String[] getReviewers() throws Exception {
+		String[] reviewerList = new String[10];
 		String tempUsername, tempPassword, role, email;
 		  try {
 			  String dir = System.getProperty("user.dir");
@@ -68,8 +68,7 @@ public class Login {
 				  role = sc.next();
 				  if (role.equals("reviewer")) {
 					  email = sc.next();
-					  User newUser = new User(tempUsername,tempPassword,role,email);
-					  reviewerList[i] = newUser;
+					  reviewerList[i] = email;
 					  i++;
 				  } else {
 					  sc.nextLine();
