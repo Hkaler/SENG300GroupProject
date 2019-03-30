@@ -68,7 +68,7 @@ public class FileUI {
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 		DefaultListModel<String> model = new DefaultListModel<>();
-		JList list = new JList(model);
+		JList<String> list = new JList<String>(model);
 		list.setBounds(44, 11, 335, 206);
 		
 		JMenuItem mntmRead = new JMenuItem("Read");
@@ -84,10 +84,11 @@ public class FileUI {
 					Scanner sc = new Scanner(fr);
 					model.removeAllElements();
 					while(sc.hasNextLine()) {
-						lineBeingRead =sc.nextLine();
+						lineBeingRead = sc.nextLine();
 						String[] RequiredData = lineBeingRead.split(csvSplitBy);
 						model.addElement(RequiredData[0]);
 					}
+					sc.close();
 				}catch(FileNotFoundException e1) {
 					System.err.println("make sure you have a \"data\" file with.");
 				}
@@ -98,6 +99,7 @@ public class FileUI {
 		
 		frame.getContentPane().add(list);
 	}
+	
 	public void setVisible(boolean x) {
 		frame.setVisible(x);
 	}
