@@ -49,7 +49,8 @@ public class GUI_AdminReviewProc {
 		frmAdministratorReviewProcesses.setBounds(100, 100, 578, 357);
 		frmAdministratorReviewProcesses.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAdministratorReviewProcesses.getContentPane().setLayout(null);
-		
+		frmAdministratorReviewProcesses.setLocationRelativeTo(null);
+
 		//displays the list of submissions
 		JList listSubmissionList = new JList();
 		listSubmissionList.setBounds(10, 29, 190, 141);
@@ -93,7 +94,7 @@ public class GUI_AdminReviewProc {
 		
 		JLabel lblReviewers = new JLabel("Reviewers");
 		lblReviewers.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblReviewers.setBounds(493, 12, 59, 14);
+		lblReviewers.setBounds(435, 12, 117, 14);
 		frmAdministratorReviewProcesses.getContentPane().add(lblReviewers);
 		
 		JButton btnBack = new JButton("Back");

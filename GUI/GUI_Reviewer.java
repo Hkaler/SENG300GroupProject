@@ -53,6 +53,7 @@ public class GUI_Reviewer {
 		frmReviewerMainPage.setBounds(100, 100, 644, 398);
 		frmReviewerMainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmReviewerMainPage.getContentPane().setLayout(null);
+		frmReviewerMainPage.setLocationRelativeTo(null);
 		
 		//Lets you switch to author page
 		JButton btnAuthorPage = new JButton("Author Page");

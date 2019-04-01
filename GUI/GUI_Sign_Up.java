@@ -66,6 +66,7 @@ public class GUI_Sign_Up {
 		frmSignUp.setBounds(100, 100, 396, 245);
 		frmSignUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSignUp.getContentPane().setLayout(null);
+		frmSignUp.setLocationRelativeTo(null);
 		
 		Sign_Up_Username = new JTextField();
 		Sign_Up_Username.setHorizontalAlignment(SwingConstants.LEFT);

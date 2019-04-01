@@ -54,7 +54,7 @@ public class GUI_Revision_Status {
 		frmRevision.setBounds(100, 100, 494, 469);
 		frmRevision.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRevision.getContentPane().setLayout(null);
-		
+		frmRevision.setLocationRelativeTo(null);
 
 		//Back button just takes you back to previous screen
 		JButton btnBack = new JButton("Back");

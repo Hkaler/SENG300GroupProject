@@ -44,7 +44,8 @@ public class GUI_Admin {
 		frmAdministratorMainPage.setBounds(100, 100, 447, 83);
 		frmAdministratorMainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAdministratorMainPage.getContentPane().setLayout(null);
-		
+		frmAdministratorMainPage.setLocationRelativeTo(null);
+
 		//Switch to reviewer mode
 		JButton btnReviewer = new JButton("Reviewer");
 		btnReviewer.addActionListener(new ActionListener() {

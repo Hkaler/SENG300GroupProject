@@ -48,6 +48,7 @@ public class GUI_AdminTickets {
 		frame.setBounds(100, 100, 450, 278);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		
 		JList listTickets = new JList();
 		listTickets.setBounds(45, 35, 339, 159);

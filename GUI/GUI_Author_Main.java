@@ -62,6 +62,7 @@ public class GUI_Author_Main {
 		frmAuthorMainPage.setBounds(100, 100, 688, 425);
 		frmAuthorMainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAuthorMainPage.getContentPane().setLayout(null);
+		frmAuthorMainPage.setLocationRelativeTo(null);
 		
 		JLabel lblPaper = new JLabel("Paper");
 		lblPaper.setBounds(10, 11, 46, 14);
@@ -98,14 +99,14 @@ public class GUI_Author_Main {
 		
 		JLabel lblRevision = new JLabel("Revision");
 		lblRevision.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblRevision.setBounds(616, 11, 46, 14);
+		lblRevision.setBounds(590, 11, 72, 14);
 		frmAuthorMainPage.getContentPane().add(lblRevision);
 		
 
 		
 		JLabel lblUploadRevisions = new JLabel("Upload Revisions:");
 		lblUploadRevisions.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUploadRevisions.setBounds(573, 36, 89, 14);
+		lblUploadRevisions.setBounds(532, 36, 130, 14);
 		frmAuthorMainPage.getContentPane().add(lblUploadRevisions);
 		
 		/* btnUploadRevision opens a file window upload page and allows a user to choose which revised paper they want to upload. 

@@ -67,6 +67,7 @@ public class GUI_Login {
 		frmLogin.setBounds(100, 100, 415, 256);
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogin.getContentPane().setLayout(null);
+		frmLogin.setLocationRelativeTo(null);
 		
 		JLabel lblUsername = new JLabel("Enter your Username");
 		lblUsername.setBounds(10, 39, 126, 14);
