@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -68,18 +70,19 @@ public class GUI_Login {
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogin.getContentPane().setLayout(null);
 		frmLogin.setLocationRelativeTo(null);
+		Icon logoImage;
 		
-		JLabel lblUsername = new JLabel("Enter your Username");
-		lblUsername.setBounds(10, 39, 126, 14);
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setBounds(24, 39, 89, 14);
 		frmLogin.getContentPane().add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("Enter your Password");
-		lblPassword.setBounds(10, 82, 126, 14);
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(24, 82, 83, 14);
 		frmLogin.getContentPane().add(lblPassword);
 		
 		Login_Username = new JTextField();
 		Login_Username.setHorizontalAlignment(SwingConstants.LEFT);
-		Login_Username.setBounds(146, 36, 243, 20);
+		Login_Username.setBounds(109, 36, 280, 20);
 		frmLogin.getContentPane().add(Login_Username);
 		Login_Username.setColumns(10);
 		//This button validates credentials and determines which GUI to direct you to upon clicking "Login"
@@ -114,7 +117,13 @@ public class GUI_Login {
 		frmLogin.getContentPane().add(btnSignUp);
 		
 		Login_Password = new JPasswordField();
-		Login_Password.setBounds(146, 79, 243, 20);
+		Login_Password.setBounds(109, 79, 280, 20);
 		frmLogin.getContentPane().add(Login_Password);
+		
+		logoImage = new ImageIcon("U:\\Desktop\\eclipseWorkspace\\SENG300GroupProject\\GUI\\uofcsuckss.jpg");
+		JLabel lblIcon = new JLabel(logoImage);
+		lblIcon.setBounds(109, 110, 180, 97);
+		frmLogin.getContentPane().add(lblIcon);
+		
 	}
 }
