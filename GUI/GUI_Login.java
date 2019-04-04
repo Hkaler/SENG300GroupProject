@@ -92,16 +92,25 @@ public class GUI_Login {
 			i.e logging in with admin credentials means getting the admin GUI*/
 			//Make an asynchronous thread to handle new windows
 			public void actionPerformed(ActionEvent arg0) {
-				if (Login.newUser.getRole().equals("admin")) {
-					try {
-						new GUI_Author_Main();
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} 
+				try {
+					Login.logIn(Login_Username.getText(), (String.valueOf(Login_Password.getPassword())));
+				} catch (Exception LoginError) {
+					LoginError.printStackTrace();
+				}
+				if (Login.newUser.getRole().equals("Administrator")) {
+					frmLogin.dispose();
+					GUI_Admin.main(null);
+				}	else if (Login.newUser.getRole().equals("Reviewer")) {
+						frmLogin.dispose();
+						GUI_Reviewer.main(null);
+					 } 	else if (Login.newUser.getRole().equals("Author")) {
+						 frmLogin.dispose();
+						 GUI_Author_Main.main(null);	
+					 }
 				}
 			}
-		});
+		);
+	
 		btnLogin.setBounds(300, 183, 89, 23);
 		frmLogin.getContentPane().add(btnLogin);
 		//"Sign Up" closes this frame and opens a Sign up frame.
@@ -119,8 +128,8 @@ public class GUI_Login {
 		Login_Password = new JPasswordField();
 		Login_Password.setBounds(109, 79, 280, 20);
 		frmLogin.getContentPane().add(Login_Password);
-		
-		logoImage = new ImageIcon("U:\\Desktop\\eclipseWorkspace\\SENG300GroupProject\\GUI\\uofcsuckss.jpg");
+
+		logoImage = new ImageIcon("GUI\\uofcsuckss.jpg");
 		JLabel lblIcon = new JLabel(logoImage);
 		lblIcon.setBounds(109, 110, 180, 97);
 		frmLogin.getContentPane().add(lblIcon);

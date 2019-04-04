@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
+import Backend.Login;
 import Backend.OpenFile;
 
 import java.awt.event.ActionListener;
@@ -137,7 +138,7 @@ public class GUI_Author_Main {
 		btnSubmitSupport.setBounds(121, 352, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnSubmitSupport);
 		
-		JButton btnBack = new JButton("Back");
+		JButton btnBack = new JButton("Sign Out");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmAuthorMainPage.dispose();
@@ -146,6 +147,18 @@ public class GUI_Author_Main {
 		});
 		btnBack.setBounds(10, 352, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnBack);
+		
+		JButton btnReviewer = new JButton("Reviewer");
+		btnReviewer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Login.newUser.getRole().equals("Reviewer")|Login.newUser.getRole().equals("Administrator")) {
+					frmAuthorMainPage.dispose();
+					GUI_Reviewer.main(null);
+				}
+			}
+		});
+		btnReviewer.setBounds(573, 7, 89, 23);
+		frmAuthorMainPage.getContentPane().add(btnReviewer);
 		
 		
 		logoImage = new ImageIcon("U:\\Desktop\\eclipseWorkspace\\SENG300GroupProject\\GUI\\uofcsuckss.jpg");

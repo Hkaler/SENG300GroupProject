@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 
 public class GUI_AdminTickets {
 
-	private JFrame frame;
+	private JFrame frmAdminTickets;
 
 	/**
 	 * Launch the application.
@@ -24,7 +24,7 @@ public class GUI_AdminTickets {
 			public void run() {
 				try {
 					GUI_AdminTickets window = new GUI_AdminTickets();
-					window.frame.setVisible(true);
+					window.frmAdminTickets.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,36 +40,36 @@ public class GUI_AdminTickets {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the frmAdminTickets.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.decode("#cee5f2"));
-		frame.setBounds(100, 100, 450, 278);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setLocationRelativeTo(null);
+		frmAdminTickets = new JFrame();
+		frmAdminTickets.getContentPane().setBackground(Color.decode("#cee5f2"));
+		frmAdminTickets.setBounds(100, 100, 450, 278);
+		frmAdminTickets.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmAdminTickets.getContentPane().setLayout(null);
+		frmAdminTickets.setLocationRelativeTo(null);
 		
 		JList listTickets = new JList();
 		listTickets.setBounds(45, 35, 339, 159);
-		frame.getContentPane().add(listTickets);
+		frmAdminTickets.getContentPane().add(listTickets);
 		//select a ticket
 		JLabel lblTickets = new JLabel("Tickets");
 		lblTickets.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTickets.setBounds(184, 11, 46, 14);
-		frame.getContentPane().add(lblTickets);
+		frmAdminTickets.getContentPane().add(lblTickets);
 		//move selected ticket to 'resolved' list
 		JButton btnResolve = new JButton("Resolve");
 		btnResolve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Delete the selected element of the list on backend
 				//listTickets.getSelectedIndex()
-				frame.dispose();
+				frmAdminTickets.dispose();
 				GUI_Admin.main(null);
 			}
 		});
 		btnResolve.setBounds(165, 205, 89, 23);
-		frame.getContentPane().add(btnResolve);
+		frmAdminTickets.getContentPane().add(btnResolve);
 	}
 
 }

@@ -1,5 +1,2 @@
-ajit1 1234 admin
-
-jose1 1234 author
-
-sehaj1 1234 reviewer
+TSkaalrud Password Administrator
+Hardeep coolio Administrator

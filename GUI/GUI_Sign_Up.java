@@ -9,6 +9,9 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
+
+import Backend.Login;
+
 import java.awt.Color;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
@@ -134,6 +137,11 @@ public class GUI_Sign_Up {
 						Entry[1] = currentRole;
 						Entry[2] = String.copyValueOf(Sign_Up_Password.getPassword());
 						Entry[3] = Sign_Up_Email.getText();
+						try {
+							Login.signUp(Entry[0], Entry[2], Entry[1]);
+						} catch (Exception signUpException) {
+							signUpException.printStackTrace();
+						}
 						frmSignUp.dispose();
 						GUI_Login.main(Entry);				
 					}

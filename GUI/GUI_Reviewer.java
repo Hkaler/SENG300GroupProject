@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
+
+import Backend.Login;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -67,7 +70,7 @@ public class GUI_Reviewer {
 		frmReviewerMainPage.getContentPane().add(btnAuthorPage);
 		
 		//Back brings you back to last page "Login"
-		JButton btnBack = new JButton("Back");
+		JButton btnBack = new JButton("Sign Out");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmReviewerMainPage.dispose();
@@ -120,5 +123,17 @@ public class GUI_Reviewer {
 		});
 		btnSubmit.setBounds(425, 291, 89, 23);
 		frmReviewerMainPage.getContentPane().add(btnSubmit);
+		
+		JButton btnAdmin = new JButton("Admin");
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Login.newUser.getRole().equals("Administrator")) {
+					frmReviewerMainPage.dispose();
+					GUI_Admin.main(null);
+				}
+			}
+		});
+		btnAdmin.setBounds(529, 11, 89, 23);
+		frmReviewerMainPage.getContentPane().add(btnAdmin);
 	}
 }
