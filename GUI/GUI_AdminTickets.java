@@ -10,7 +10,11 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-//Admin tickets should be tagged with the 
+/**
+ * 
+ * @author taylor.skaalrud1
+ * Creates the frame containing a list of tickets for the administrator to resolve
+ */
 
 public class GUI_AdminTickets {
 
@@ -50,18 +54,22 @@ public class GUI_AdminTickets {
 		frmAdminTickets.getContentPane().setLayout(null);
 		frmAdminTickets.setLocationRelativeTo(null);
 		
+				JLabel lblTickets = new JLabel("Tickets");
+				lblTickets.setHorizontalAlignment(SwingConstants.CENTER);
+				lblTickets.setBounds(184, 11, 46, 14);
+				frmAdminTickets.getContentPane().add(lblTickets);
+		
+		//Displays a selectable list of tickets
 		JList listTickets = new JList();
 		listTickets.setBounds(45, 35, 339, 159);
 		frmAdminTickets.getContentPane().add(listTickets);
-		//select a ticket
-		JLabel lblTickets = new JLabel("Tickets");
-		lblTickets.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTickets.setBounds(184, 11, 46, 14);
-		frmAdminTickets.getContentPane().add(lblTickets);
-		//move selected ticket to 'resolved' list
+		
+		//move selected ticket to 'resolved' list 
 		JButton btnResolve = new JButton("Resolve");
 		btnResolve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				GUI_Confirmation_Window.main(null);
+
 				//Delete the selected element of the list on backend
 				//listTickets.getSelectedIndex()
 				frmAdminTickets.dispose();

@@ -12,6 +12,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
+/**
+ * 
+ * @author taylor.skaalrud1
+ * Creates the frame containing a list of submissions, their contents, a selection of potential reviewers, and the ability to assign reviewers to 
+ * a paper and to finalize judgment on said paper
+ */
 public class GUI_AdminReviewProc {
 
 	private JFrame frmAdministratorReviewProcesses;
@@ -50,29 +56,28 @@ public class GUI_AdminReviewProc {
 		frmAdministratorReviewProcesses.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAdministratorReviewProcesses.getContentPane().setLayout(null);
 		frmAdministratorReviewProcesses.setLocationRelativeTo(null);
+		
+		JLabel lblSubmissions = new JLabel("Submissions");
+		lblSubmissions.setBounds(10, 12, 79, 14);
+		frmAdministratorReviewProcesses.getContentPane().add(lblSubmissions);
+		
+		JLabel lblReviewers = new JLabel("Reviewers");
+		lblReviewers.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblReviewers.setBounds(435, 12, 117, 14);
+		frmAdministratorReviewProcesses.getContentPane().add(lblReviewers);
+		
+		JRadioButton rdbtnPublish = new JRadioButton("Publish");
+		rdbtnPublish.setBounds(10, 211, 89, 23);
+		frmAdministratorReviewProcesses.getContentPane().add(rdbtnPublish);
 
 		//displays the list of submissions
 		JList listSubmissionList = new JList();
 		listSubmissionList.setBounds(10, 29, 190, 141);
 		frmAdministratorReviewProcesses.getContentPane().add(listSubmissionList);
 		
-		//Use to assign a reviewer (need 3 min) to an submission TBD
-		//Select a submission and a reviewer then press assign to pair them on backend
-		JButton btnAssign = new JButton("Assign");
-		btnAssign.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAssign.setBounds(420, 76, 89, 23);
-		frmAdministratorReviewProcesses.getContentPane().add(btnAssign);
-		//Judge button allows the reviewer to determine if the paper is good for publication determined by the status of the radio button
-		JButton btnJudge = new JButton("Judge");
-		btnJudge.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnJudge.setBounds(10, 181, 89, 23);
-		frmAdministratorReviewProcesses.getContentPane().add(btnJudge);
+		/*Use to assign a selected reviewer (need 3 minimum) to a selected submission
+		*Select a submission and a reviewer then press assign to pair them on backend
+		*/
 		
 		//displays info about the selected submission
 		JList listSubmissionInfo = new JList();
@@ -84,19 +89,7 @@ public class GUI_AdminReviewProc {
 		comboBox.setBounds(362, 29, 190, 36);
 		frmAdministratorReviewProcesses.getContentPane().add(comboBox);
 		
-		JRadioButton rdbtnPublish = new JRadioButton("Publish");
-		rdbtnPublish.setBounds(10, 211, 89, 23);
-		frmAdministratorReviewProcesses.getContentPane().add(rdbtnPublish);
-		
-		JLabel lblSubmissions = new JLabel("Submissions");
-		lblSubmissions.setBounds(10, 12, 79, 14);
-		frmAdministratorReviewProcesses.getContentPane().add(lblSubmissions);
-		
-		JLabel lblReviewers = new JLabel("Reviewers");
-		lblReviewers.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblReviewers.setBounds(435, 12, 117, 14);
-		frmAdministratorReviewProcesses.getContentPane().add(lblReviewers);
-		
+		//Switch to Admin 
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,6 +97,27 @@ public class GUI_AdminReviewProc {
 				GUI_Admin.main(null);
 			}
 		});
+		
+		//If the "Publish" radio button is toggled, Judge publishes the file; if not, it is rejected.
+		JButton btnJudge = new JButton("Judge");
+		btnJudge.setBackground(Color.decode("#fb4b4e"));
+		btnJudge.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUI_Confirmation_Window.main(null);
+				
+			}
+		});
+		JButton btnAssign = new JButton("Assign");
+		btnAssign.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUI_Confirmation_Window.main(null);
+
+			}
+		});
+		btnAssign.setBounds(420, 76, 89, 23);
+		frmAdministratorReviewProcesses.getContentPane().add(btnAssign);
+		btnJudge.setBounds(10, 181, 89, 23);
+		frmAdministratorReviewProcesses.getContentPane().add(btnJudge);
 		btnBack.setBounds(10, 284, 89, 23);
 		frmAdministratorReviewProcesses.getContentPane().add(btnBack);
 	}

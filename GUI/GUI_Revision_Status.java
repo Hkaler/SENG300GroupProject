@@ -20,15 +20,16 @@ public class GUI_Revision_Status {
 
 	private JFrame frmRevision;
 	private String[] Revisions = new String[1];
+	private String paper;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String paper) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI_Revision_Status window = new GUI_Revision_Status();
+					GUI_Revision_Status window = new GUI_Revision_Status(paper);
 					window.frmRevision.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,8 +40,10 @@ public class GUI_Revision_Status {
 
 	/**
 	 * Create the application.
+	 * @param paper is the String of the submitted paper
 	 */
-	public GUI_Revision_Status() {
+	public GUI_Revision_Status(String paper) {
+		this.paper = paper;
 		initialize();
 	}
 
@@ -48,6 +51,8 @@ public class GUI_Revision_Status {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
 		frmRevision = new JFrame();
 		frmRevision.setTitle("Revision");
 		frmRevision.getContentPane().setBackground(Color.decode("#cee5f2"));
@@ -55,17 +60,16 @@ public class GUI_Revision_Status {
 		frmRevision.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRevision.getContentPane().setLayout(null);
 		frmRevision.setLocationRelativeTo(null);
-
-		//Back button just takes you back to previous screen
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frmRevision.dispose();
-				GUI_Reviewer.main(Revisions);
-			}
-		});
-		btnBack.setBounds(10, 397, 89, 23);
-		frmRevision.getContentPane().add(btnBack);
+		
+		JLabel lblRevisionFeedback = new JLabel("Revision Feedback");
+		lblRevisionFeedback.setBounds(10, 16, 98, 14);
+		frmRevision.getContentPane().add(lblRevisionFeedback);
+		
+		JLabel lblStatus = new JLabel("Status");
+		lblStatus.setBounds(10, 321, 46, 14);
+		frmRevision.getContentPane().add(lblStatus);
+		
+		//Radio buttons add meta data to a submission, indicating its status to the author as well as the admin
 		//Radio button "Under Review" lets you place the selected submission as "Under Review"
 		JRadioButton rdbtnUnderReview = new JRadioButton("Under Review");
 		rdbtnUnderReview.setBackground(Color.decode("#97d7ff"));
@@ -81,10 +85,6 @@ public class GUI_Revision_Status {
 		rdbtnReceived.setBackground(Color.decode("#97d7ff"));
 		rdbtnReceived.setBounds(10, 342, 112, 23);
 		frmRevision.getContentPane().add(rdbtnReceived);
-		
-		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setBounds(10, 321, 46, 14);
-		frmRevision.getContentPane().add(lblStatus);
 		//Radio button "Finalize" lets you place the selected submission as "Finalize"
 		JRadioButton rdbtnFinalize = new JRadioButton("Finalize");
 		rdbtnFinalize.setBackground(Color.decode("#97d7ff"));
@@ -101,20 +101,28 @@ public class GUI_Revision_Status {
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(10, 42, 458, 268);
 		frmRevision.getContentPane().add(scrollPane);
-		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		
-		JLabel lblRevisionFeedback = new JLabel("Revision Feedback");
-		lblRevisionFeedback.setBounds(10, 16, 98, 14);
-		frmRevision.getContentPane().add(lblRevisionFeedback);
 		//Submit lets you submit your revisions
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				GUI_Confirmation_Window.main(null);
 				Revisions[0] = textArea.getText();
 			}
 		});
+		
+				//Back button just takes you back to previous screen
+				JButton btnBack = new JButton("Back");
+				btnBack.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						frmRevision.dispose();
+						GUI_Reviewer.main(Revisions);
+					}
+				});
+				btnBack.setBounds(10, 397, 89, 23);
+				frmRevision.getContentPane().add(btnBack);
 		btnSubmit.setBounds(375, 397, 89, 23);
 		frmRevision.getContentPane().add(btnSubmit);
 		

@@ -71,12 +71,6 @@ public class GUI_Sign_Up {
 		frmSignUp.getContentPane().setLayout(null);
 		frmSignUp.setLocationRelativeTo(null);
 		
-		Sign_Up_Username = new JTextField();
-		Sign_Up_Username.setHorizontalAlignment(SwingConstants.LEFT);
-		Sign_Up_Username.setBounds(153, 21, 210, 29);
-		frmSignUp.getContentPane().add(Sign_Up_Username);
-		Sign_Up_Username.setColumns(10);
-		
 		
 		JLabel lblUsername = new JLabel("Enter your username:");
 		lblUsername.setBounds(20, 24, 123, 22);
@@ -86,37 +80,21 @@ public class GUI_Sign_Up {
 		lblEnterYourPassword.setBounds(20, 76, 123, 29);
 		frmSignUp.getContentPane().add(lblEnterYourPassword);
 		
-		//Back button just takes you back to previous screen "GUI_Login"
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmSignUp.dispose();
-				GUI_Login.main(null);				
-			}
-		});
-		btnBack.setBounds(20, 172, 89, 23);
-		frmSignUp.getContentPane().add(btnBack);
-		
 		JLabel lblRole = new JLabel("Enter your role:");
 		lblRole.setBounds(20, 57, 123, 14);
 		frmSignUp.getContentPane().add(lblRole);
-		
-		Sign_Up_Password = new JPasswordField();
-		Sign_Up_Password.setHorizontalAlignment(SwingConstants.LEFT);
-		Sign_Up_Password.setBounds(153, 76, 210, 29);
-		frmSignUp.getContentPane().add(Sign_Up_Password);
-		
-		Sign_Up_Email = new JTextField();
-		Sign_Up_Email.setHorizontalAlignment(SwingConstants.LEFT);
-		Sign_Up_Email.setColumns(10);
-		Sign_Up_Email.setBounds(153, 103, 210, 29);
-		frmSignUp.getContentPane().add(Sign_Up_Email);
 		
 		JLabel lblEnterYourEmail = new JLabel("Enter your Email:");
 		lblEnterYourEmail.setBounds(20, 110, 123, 14);
 		frmSignUp.getContentPane().add(lblEnterYourEmail);
 		
-
+		//Text field for username
+		Sign_Up_Username = new JTextField();
+		Sign_Up_Username.setHorizontalAlignment(SwingConstants.LEFT);
+		Sign_Up_Username.setBounds(153, 21, 210, 29);
+		frmSignUp.getContentPane().add(Sign_Up_Username);
+		Sign_Up_Username.setColumns(10);
+		
 		//Drop down role selector; current Role contains the selection
 		JComboBox Sign_Up_Role = new JComboBox(roles);
 		Sign_Up_Role.addItemListener(new ItemListener() {
@@ -129,10 +107,24 @@ public class GUI_Sign_Up {
 		Sign_Up_Role.setBounds(153, 50, 210, 29);
 		frmSignUp.getContentPane().add(Sign_Up_Role);
 		
+		//text field for password
+		Sign_Up_Password = new JPasswordField();
+		Sign_Up_Password.setHorizontalAlignment(SwingConstants.LEFT);
+		Sign_Up_Password.setBounds(153, 76, 210, 29);
+		frmSignUp.getContentPane().add(Sign_Up_Password);
+		
+		//text field for email
+		Sign_Up_Email = new JTextField();
+		Sign_Up_Email.setHorizontalAlignment(SwingConstants.LEFT);
+		Sign_Up_Email.setColumns(10);
+		Sign_Up_Email.setBounds(153, 103, 210, 29);
+		frmSignUp.getContentPane().add(Sign_Up_Email);
+		
 		//Submit button places the 4 values entered into "Entry" for retrieval and returns to "Login"
 				JButton btnSubmit = new JButton("Submit");
 				btnSubmit.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						GUI_Confirmation_Window.main(null);
 						Entry[0] = Sign_Up_Username.getText();
 						Entry[1] = currentRole;
 						Entry[2] = String.copyValueOf(Sign_Up_Password.getPassword());
@@ -146,6 +138,17 @@ public class GUI_Sign_Up {
 						GUI_Login.main(Entry);				
 					}
 				});
+				
+				//Back button just takes you back to previous screen "GUI_Login"
+				JButton btnBack = new JButton("Back");
+				btnBack.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						frmSignUp.dispose();
+						GUI_Login.main(null);				
+					}
+				});
+				btnBack.setBounds(20, 172, 89, 23);
+				frmSignUp.getContentPane().add(btnBack);
 				btnSubmit.setBounds(274, 172, 89, 23);
 				frmSignUp.getContentPane().add(btnSubmit);
 		

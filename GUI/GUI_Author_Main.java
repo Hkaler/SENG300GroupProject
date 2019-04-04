@@ -24,6 +24,12 @@ import javax.swing.JTextArea;
 import javax.swing.JMenuBar;
 import java.awt.Canvas;
 
+/**
+ * 
+ * @author taylor.skaalrud1
+ * Author main Allows the user to submit papers for review, tickets of concerns, review suggested edits made by reviewers
+ * and switch to reviewer if they have at least reviewer level access
+ */
 public class GUI_Author_Main {
 
 	private JFrame frmAuthorMainPage;
@@ -72,8 +78,6 @@ public class GUI_Author_Main {
 		lblPaper.setBounds(10, 11, 46, 14);
 		frmAuthorMainPage.getContentPane().add(lblPaper);
 		
-		Icon logoImage;
-		
 		JLabel lblSubmitPaper = new JLabel("Submit Paper:");
 		lblSubmitPaper.setBounds(10, 36, 157, 14);
 		frmAuthorMainPage.getContentPane().add(lblSubmitPaper);
@@ -81,6 +85,45 @@ public class GUI_Author_Main {
 		/* btnUploadPaper opens a file window upload page and allows a user to choose which paper they want to upload. 
 		 * The file name will be shown on the textfield
 		 */
+		
+		JLabel lblSubmitSupportTicket = new JLabel("Submit Support Ticket:");
+		lblSubmitSupportTicket.setBounds(10, 61, 157, 14);
+		frmAuthorMainPage.getContentPane().add(lblSubmitSupportTicket);
+		
+		JLabel lblReviewStatus = new JLabel("Review Status:");
+		lblReviewStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblReviewStatus.setBounds(561, 61, 101, 14);
+		frmAuthorMainPage.getContentPane().add(lblReviewStatus);
+		
+		txtSubmitPaper = new JTextField();
+		txtSubmitPaper.setBounds(90, 33, 192, 20);
+		frmAuthorMainPage.getContentPane().add(txtSubmitPaper);
+		txtSubmitPaper.setColumns(10);
+		
+		//Displays the reviewers most recent revisions *not used for submissions
+		JScrollPane scrollPaneReview = new JScrollPane();
+		scrollPaneReview.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneReview.setBounds(343, 86, 319, 255);
+		frmAuthorMainPage.getContentPane().add(scrollPaneReview);
+		JTextArea textAreaReview = new JTextArea();
+		scrollPaneReview.setViewportView(textAreaReview);
+		
+		//Text field used to enter a support ticket
+		JScrollPane scrollPaneSupport = new JScrollPane();
+		scrollPaneSupport.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneSupport.setBounds(10, 86, 323, 255);
+		frmAuthorMainPage.getContentPane().add(scrollPaneSupport);
+		JTextArea textAreaSupport = new JTextArea();
+		scrollPaneSupport.setViewportView(textAreaSupport);
+		
+		//SubmitSupport button is used to submit a support ticket
+		JButton btnSubmitSupport = new JButton("Submit");
+		btnSubmitSupport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUI_Confirmation_Window.main(null);
+				Ticket[0] = textAreaReview.getText();
+			}
+		});
 		JButton btnUploadPaper = new JButton("Upload");
 		btnUploadPaper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,47 +140,19 @@ public class GUI_Author_Main {
 		});
 		btnUploadPaper.setBounds(292, 32, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnUploadPaper);
-		
-		txtSubmitPaper = new JTextField();
-		txtSubmitPaper.setBounds(90, 33, 192, 20);
-		frmAuthorMainPage.getContentPane().add(txtSubmitPaper);
-		txtSubmitPaper.setColumns(10);
-		
-		JLabel lblReviewStatus = new JLabel("Review Status:");
-		lblReviewStatus.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblReviewStatus.setBounds(561, 61, 101, 14);
-		frmAuthorMainPage.getContentPane().add(lblReviewStatus);
-		
-		//Displays the reviewers most recent revisions *not used for submissions
-		JScrollPane scrollPaneReview = new JScrollPane();
-		scrollPaneReview.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPaneReview.setBounds(343, 86, 319, 255);
-		frmAuthorMainPage.getContentPane().add(scrollPaneReview);
-		
-		JTextArea textAreaReview = new JTextArea();
-		scrollPaneReview.setViewportView(textAreaReview);
-		
-		JLabel lblSubmitSupportTicket = new JLabel("Submit Support Ticket:");
-		lblSubmitSupportTicket.setBounds(10, 61, 157, 14);
-		frmAuthorMainPage.getContentPane().add(lblSubmitSupportTicket);
-		
-		JScrollPane scrollPaneSupport = new JScrollPane();
-		scrollPaneSupport.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPaneSupport.setBounds(10, 86, 323, 255);
-		frmAuthorMainPage.getContentPane().add(scrollPaneSupport);
-		
-		JTextArea textAreaSupport = new JTextArea();
-		scrollPaneSupport.setViewportView(textAreaSupport);
-		//Submit button is used to submit a support ticket
-		JButton btnSubmitSupport = new JButton("Submit");
-		btnSubmitSupport.addActionListener(new ActionListener() {
+		JButton btnSubmitPaper = new JButton("Submit");
+		btnSubmitPaper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Ticket[0] = textAreaReview.getText();
+				GUI_Confirmation_Window.main(null);
+
 			}
 		});
+		btnSubmitPaper.setBounds(391, 32, 89, 23);
+		frmAuthorMainPage.getContentPane().add(btnSubmitPaper);
 		btnSubmitSupport.setBounds(121, 352, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnSubmitSupport);
 		
+		//Signs the user out to the login page
 		JButton btnBack = new JButton("Sign Out");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,6 +163,7 @@ public class GUI_Author_Main {
 		btnBack.setBounds(10, 352, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnBack);
 		
+		//Switches the user to reviewer if they are of at least that permission level
 		JButton btnReviewer = new JButton("Reviewer");
 		btnReviewer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -160,8 +176,9 @@ public class GUI_Author_Main {
 		btnReviewer.setBounds(573, 7, 89, 23);
 		frmAuthorMainPage.getContentPane().add(btnReviewer);
 		
-		
-		logoImage = new ImageIcon("U:\\Desktop\\eclipseWorkspace\\SENG300GroupProject\\GUI\\uofcsuckss.jpg");
+		/**
+		 * Dear Hardeep please paste here. ^_^
+		 */
 		
 	
 	}

@@ -7,6 +7,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author taylor.skaalrud1
+ * Creates the frame containing administrator options
+ */
+
 public class GUI_Admin {
 
 	private JFrame frmAdministratorMainPage;
@@ -57,7 +63,7 @@ public class GUI_Admin {
 		btnReviewer.setBounds(10, 11, 89, 23);
 		frmAdministratorMainPage.getContentPane().add(btnReviewer);
 		
-		//Opens GUI_AdminReviewProc window
+		//Switch to Review Processes
 		JButton btnReviewProcesses = new JButton("Review Processes");
 		btnReviewProcesses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -65,11 +71,8 @@ public class GUI_Admin {
 				GUI_AdminReviewProc.main(null);
 			}
 		});
-		btnReviewProcesses.setToolTipText("");
-		btnReviewProcesses.setBounds(277, 11, 143, 23);
-		frmAdministratorMainPage.getContentPane().add(btnReviewProcesses);
 		
-		//opens GUI_AdminTickets window
+		//Switch to Admin Tickets
 		JButton btnReviewTickets = new JButton("Review Tickets");
 		btnReviewTickets.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,5 +82,8 @@ public class GUI_Admin {
 		});
 		btnReviewTickets.setBounds(109, 11, 158, 23);
 		frmAdministratorMainPage.getContentPane().add(btnReviewTickets);
+		btnReviewProcesses.setToolTipText("");
+		btnReviewProcesses.setBounds(277, 11, 143, 23);
+		frmAdministratorMainPage.getContentPane().add(btnReviewProcesses);
 	}
 }
