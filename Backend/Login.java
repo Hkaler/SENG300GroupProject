@@ -68,7 +68,7 @@ public class Login {
 				  role = sc.next();
 				  if (role.equals("reviewer")) {
 					  email = sc.next();
-					  reviewerList[i] = email;
+					  reviewerList[i] = tempUsername;
 					  i++;
 				  } else {
 					  sc.nextLine();
