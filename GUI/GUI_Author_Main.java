@@ -125,11 +125,11 @@ public class GUI_Author_Main {
 			}
 		});
 		JButton btnUploadPaper = new JButton("Upload");
+		/*Moved Openfile of out of Upload function for use of submit function*/
+		OpenFile of = new OpenFile(); 
 		btnUploadPaper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/* This opens the actual file contents into the textfield */
-				OpenFile of = new OpenFile();
-				
 				try {
 					of.PickMe();
 				} catch (Exception f) {
@@ -144,7 +144,14 @@ public class GUI_Author_Main {
 		btnSubmitPaper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GUI_Confirmation_Window.main(null);
-
+				File sfile = of.fileChooser.getSelectedFile();
+				try {
+			    	Files.copy(Paths.get(sfile.toURI()), Paths.get("./" + sfile.getName()), StandardCopyOption.REPLACE_EXISTING);
+			        
+			      } catch (Exception e2) {
+			        e2.printStackTrace();
+			      }
+				txtSubmitPaper.setText("");
 			}
 		});
 		btnSubmitPaper.setBounds(391, 32, 89, 23);
